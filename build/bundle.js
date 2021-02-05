@@ -1,2 +1,4647 @@
-var app=function(){"use strict";function e(){}function t(e,t){for(const n in t)e[n]=t[n];return e}function n(e){return e()}function i(){return Object.create(null)}function c(e){e.forEach(n)}function o(e){return"function"==typeof e}function r(e,t){return e!=e?t==t:e!==t||e&&"object"==typeof e||"function"==typeof e}function s(e,t,n,i){if(e){const c=a(e,t,n,i);return e[0](c)}}function a(e,n,i,c){return e[1]&&c?t(i.ctx.slice(),e[1](c(n))):i.ctx}function l(e,t,n,i,c,o,r){const s=function(e,t,n,i){if(e[2]&&i){const c=e[2](i(n));if(void 0===t.dirty)return c;if("object"==typeof c){const e=[],n=Math.max(t.dirty.length,c.length);for(let i=0;i<n;i+=1)e[i]=t.dirty[i]|c[i];return e}return t.dirty|c}return t.dirty}(t,i,c,o);if(s){const c=a(t,n,i,r);e.p(c,s)}}function u(e){const t={};for(const n in e)"$"!==n[0]&&(t[n]=e[n]);return t}function d(e,t){e.appendChild(t)}function f(e,t,n){e.insertBefore(t,n||null)}function p(e){e.parentNode.removeChild(e)}function m(e,t){for(let n=0;n<e.length;n+=1)e[n]&&e[n].d(t)}function $(e){return document.createElement(e)}function g(e){return document.createTextNode(e)}function v(){return g(" ")}function h(e,t,n,i){return e.addEventListener(t,n,i),()=>e.removeEventListener(t,n,i)}function y(e){return function(t){return t.preventDefault(),e.call(this,t)}}function w(e,t,n){null==n?e.removeAttribute(t):e.getAttribute(t)!==n&&e.setAttribute(t,n)}function b(e,t){const n=Object.getOwnPropertyDescriptors(e.__proto__);for(const i in t)null==t[i]?e.removeAttribute(i):"style"===i?e.style.cssText=t[i]:"__value"===i?e.value=e[i]=t[i]:n[i]&&n[i].set?e[i]=t[i]:w(e,i,t[i])}function k(e,t){t=""+t,e.wholeText!==t&&(e.data=t)}function x(e,t){e.value=null==t?"":t}function _(e,t,n){e.classList[n?"add":"remove"](t)}let S;function E(e){S=e}function I(){if(!S)throw new Error("Function called outside component initialization");return S}function T(e){I().$$.on_mount.push(e)}function C(e){I().$$.on_destroy.push(e)}function U(){const e=I();return(t,n)=>{const i=e.$$.callbacks[t];if(i){const c=function(e,t){const n=document.createEvent("CustomEvent");return n.initCustomEvent(e,!1,!1,t),n}(t,n);i.slice().forEach((t=>{t.call(e,c)}))}}}const V=[],D=[],O=[],M=[],j=Promise.resolve();let A=!1;function N(e){O.push(e)}let L=!1;const z=new Set;function P(){if(!L){L=!0;do{for(let e=0;e<V.length;e+=1){const t=V[e];E(t),R(t.$$)}for(E(null),V.length=0;D.length;)D.pop()();for(let e=0;e<O.length;e+=1){const t=O[e];z.has(t)||(z.add(t),t())}O.length=0}while(V.length);for(;M.length;)M.pop()();A=!1,L=!1,z.clear()}}function R(e){if(null!==e.fragment){e.update(),c(e.before_update);const t=e.dirty;e.dirty=[-1],e.fragment&&e.fragment.p(e.ctx,t),e.after_update.forEach(N)}}const Y=new Set;let q;function B(){q={r:0,c:[],p:q}}function H(){q.r||c(q.c),q=q.p}function J(e,t){e&&e.i&&(Y.delete(e),e.i(t))}function F(e,t,n,i){if(e&&e.o){if(Y.has(e))return;Y.add(e),q.c.push((()=>{Y.delete(e),i&&(n&&e.d(1),i())})),e.o(t)}}function W(e,t){const n={},i={},c={$$scope:1};let o=e.length;for(;o--;){const r=e[o],s=t[o];if(s){for(const e in r)e in s||(i[e]=1);for(const e in s)c[e]||(n[e]=s[e],c[e]=1);e[o]=s}else for(const e in r)c[e]=1}for(const e in i)e in n||(n[e]=void 0);return n}function Z(e){e&&e.c()}function G(e,t,i){const{fragment:r,on_mount:s,on_destroy:a,after_update:l}=e.$$;r&&r.m(t,i),N((()=>{const t=s.map(n).filter(o);a?a.push(...t):c(t),e.$$.on_mount=[]})),l.forEach(N)}function Q(e,t){const n=e.$$;null!==n.fragment&&(c(n.on_destroy),n.fragment&&n.fragment.d(t),n.on_destroy=n.fragment=null,n.ctx=[])}function X(e,t){-1===e.$$.dirty[0]&&(V.push(e),A||(A=!0,j.then(P)),e.$$.dirty.fill(0)),e.$$.dirty[t/31|0]|=1<<t%31}function K(t,n,o,r,s,a,l=[-1]){const u=S;E(t);const d=n.props||{},f=t.$$={fragment:null,ctx:null,props:a,update:e,not_equal:s,bound:i(),on_mount:[],on_destroy:[],before_update:[],after_update:[],context:new Map(u?u.$$.context:[]),callbacks:i(),dirty:l,skip_bound:!1};let m=!1;if(f.ctx=o?o(t,d,((e,n,...i)=>{const c=i.length?i[0]:n;return f.ctx&&s(f.ctx[e],f.ctx[e]=c)&&(!f.skip_bound&&f.bound[e]&&f.bound[e](c),m&&X(t,e)),n})):[],f.update(),m=!0,c(f.before_update),f.fragment=!!r&&r(f.ctx),n.target){if(n.hydrate){const e=function(e){return Array.from(e.childNodes)}(n.target);f.fragment&&f.fragment.l(e),e.forEach(p)}else f.fragment&&f.fragment.c();n.intro&&J(t.$$.fragment),G(t,n.target,n.anchor),P()}E(u)}class ee{$destroy(){Q(this,1),this.$destroy=e}$on(e,t){const n=this.$$.callbacks[e]||(this.$$.callbacks[e]=[]);return n.push(t),()=>{const e=n.indexOf(t);-1!==e&&n.splice(e,1)}}$set(e){var t;this.$$set&&(t=e,0!==Object.keys(t).length)&&(this.$$.skip_bound=!0,this.$$set(e),this.$$.skip_bound=!1)}}const te=[];function ne(t,n=e){let i;const c=[];function o(e){if(r(t,e)&&(t=e,i)){const e=!te.length;for(let e=0;e<c.length;e+=1){const n=c[e];n[1](),te.push(n,t)}if(e){for(let e=0;e<te.length;e+=2)te[e][0](te[e+1]);te.length=0}}}return{set:o,update:function(e){o(e(t))},subscribe:function(r,s=e){const a=[r,s];return c.push(a),1===c.length&&(i=n(o)||e),r(t),()=>{const e=c.indexOf(a);-1!==e&&c.splice(e,1),0===c.length&&(i(),i=null)}}}}const ie=ne(!1),ce=ne(),oe=ne("");function re(e){let t,n,i;const c=e[2].default,o=s(c,e,e[1],null);return{c(){t=$("div"),n=$("span"),o&&o.c(),w(t,"class","critical-toast svelte-13x9d4n"),_(t,"show",e[0])},m(e,c){f(e,t,c),d(t,n),o&&o.m(n,null),i=!0},p(e,[n]){o&&o.p&&2&n&&l(o,c,e,e[1],n,null,null),1&n&&_(t,"show",e[0])},i(e){i||(J(o,e),i=!0)},o(e){F(o,e),i=!1},d(e){e&&p(t),o&&o.d(e)}}}function se(e,t,n){let{$$slots:i={},$$scope:c}=t,{show:o=!1}=t;return e.$$set=e=>{"show"in e&&n(0,o=e.show),"$$scope"in e&&n(1,c=e.$$scope)},[o,c,i]}class ae extends ee{constructor(e){super(),K(this,e,se,re,r,{show:0})}}function le(e,t,n){const i=e.slice();return i[3]=t[n],i}function ue(e){let t,n=e[3].text+"";return{c(){t=g(n)},m(e,n){f(e,t,n)},p(e,i){1&i&&n!==(n=e[3].text+"")&&k(t,n)},d(e){e&&p(t)}}}function de(e){let t,n;return t=new ae({props:{show:"visible"===e[3].status,$$slots:{default:[ue]},$$scope:{ctx:e}}}),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},p(e,n){const i={};1&n&&(i.show="visible"===e[3].status),65&n&&(i.$$scope={dirty:n,ctx:e}),t.$set(i)},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}function fe(e){let t,n,i=e[0],c=[];for(let t=0;t<i.length;t+=1)c[t]=de(le(e,i,t));const o=e=>F(c[e],1,1,(()=>{c[e]=null}));return{c(){t=$("div");for(let e=0;e<c.length;e+=1)c[e].c();w(t,"class","critical-container svelte-vvip71")},m(e,i){f(e,t,i);for(let e=0;e<c.length;e+=1)c[e].m(t,null);n=!0},p(e,[n]){if(1&n){let r;for(i=e[0],r=0;r<i.length;r+=1){const o=le(e,i,r);c[r]?(c[r].p(o,n),J(c[r],1)):(c[r]=de(o),c[r].c(),J(c[r],1),c[r].m(t,null))}for(B(),r=i.length;r<c.length;r+=1)o(r);H()}},i(e){if(!n){for(let e=0;e<i.length;e+=1)J(c[e]);n=!0}},o(e){c=c.filter(Boolean);for(let e=0;e<c.length;e+=1)F(c[e]);n=!1},d(e){e&&p(t),m(c,e)}}}function pe(e,t,n){let i=[];const c=()=>{i.shift(),n(0,i)};return oe.subscribe((e=>{e&&(n(0,i=[...i,{text:e,status:"visible"}]),setTimeout((()=>{n(0,i=i.map((t=>t.text===e?{text:e,status:"hidden"}:t)))}),3500),setTimeout((()=>{c(),oe.set("")}),4e3))})),[i]}class me extends ee{constructor(e){super(),K(this,e,pe,fe,r,{})}}function $e(e){let n,i,c,o;const r=e[4].default,a=s(r,e,e[3],null);let u=[e[2],{type:e[0]}],d={};for(let e=0;e<u.length;e+=1)d=t(d,u[e]);return{c(){n=$("button"),a&&a.c(),b(n,d),_(n,"svelte-fp4ngz",!0)},m(t,r){f(t,n,r),a&&a.m(n,null),i=!0,c||(o=h(n,"click",e[1]),c=!0)},p(e,[t]){a&&a.p&&8&t&&l(a,r,e,e[3],t,null,null),b(n,d=W(u,[4&t&&e[2],(!i||1&t)&&{type:e[0]}])),_(n,"svelte-fp4ngz",!0)},i(e){i||(J(a,e),i=!0)},o(e){F(a,e),i=!1},d(e){e&&p(n),a&&a.d(e),c=!1,o()}}}function ge(e,n,i){let{$$slots:c={},$$scope:o}=n,{type:r="button"}=n;const s=U();return e.$$set=e=>{i(2,n=t(t({},n),u(e))),"type"in e&&i(0,r=e.type),"$$scope"in e&&i(3,o=e.$$scope)},n=u(n),[r,function(){s("onClick")},n,o,c]}class ve extends ee{constructor(e){super(),K(this,e,ge,$e,r,{type:0})}}const he=e=>{switch(e){case"NotFoundError":case"DevicesNotFoundError":return"Target media device is not found or it is unplugged.";case"NotReadableError":case"TrackStartError":return"Your camera may be used by another app.";case"NotAllowedError":case"PermissionDeniedError":return"Your browser denies capturing video from your camera.";case"OverconstrainedError":case"ConstraintNotSatisfiedError":return"Something went wrong with constraints.";default:return"Something went wrong."}};function ye(n){let i,c,o,r,s=[n[0],{class:"lds-ripple"}],a={};for(let e=0;e<s.length;e+=1)a=t(a,s[e]);return{c(){i=$("div"),c=$("div"),o=v(),r=$("div"),w(c,"class","svelte-1qnhu31"),w(r,"class","svelte-1qnhu31"),b(i,a),_(i,"svelte-1qnhu31",!0)},m(e,t){f(e,i,t),d(i,c),d(i,o),d(i,r)},p(e,[t]){b(i,a=W(s,[1&t&&e[0],{class:"lds-ripple"}])),_(i,"svelte-1qnhu31",!0)},i:e,o:e,d(e){e&&p(i)}}}function we(e,n,i){return e.$$set=e=>{i(0,n=t(t({},n),u(e)))},[n=u(n)]}class be extends ee{constructor(e){super(),K(this,e,we,ye,r,{})}}const ke=()=>window.innerWidth<600,xe=(e={video:!0,audio:!0})=>navigator.mediaDevices.getUserMedia(e),_e=(e,t)=>{const n=e=>!e||{deviceId:{exact:e.deviceId}};return{video:n(e),audio:n(t)}},Se=(e,t)=>e.filter((e=>e.kind===t)),Ee=e=>{localStorage.setItem("__devices_token",JSON.stringify(e))},Ie=()=>{const e=localStorage.getItem("__devices_token");return JSON.parse(e)};function Te(e,t,n){const i=e.slice();return i[7]=t[n],i}function Ce(e){let t,n,i,c,o,r,s,a=e[0],l=[];for(let t=0;t<a.length;t+=1)l[t]=Ue(Te(e,a,t));return{c(){t=$("div"),n=$("h4"),i=g(e[1]),c=v(),o=$("select");for(let e=0;e<l.length;e+=1)l[e].c();w(o,"class","svelte-n5zgal"),w(t,"class","svelte-n5zgal")},m(a,u){f(a,t,u),d(t,n),d(n,i),d(t,c),d(t,o);for(let e=0;e<l.length;e+=1)l[e].m(o,null);r||(s=h(o,"change",e[5]),r=!0)},p(e,t){if(2&t&&k(i,e[1]),29&t){let n;for(a=e[0],n=0;n<a.length;n+=1){const i=Te(e,a,n);l[n]?l[n].p(i,t):(l[n]=Ue(i),l[n].c(),l[n].m(o,null))}for(;n<l.length;n+=1)l[n].d(1);l.length=a.length}},d(e){e&&p(t),m(l,e),r=!1,s()}}}function Ue(e){let t,n,i,c,o=e[7][e[3]]+"";return{c(){t=$("option"),n=g(o),t.selected=i=e[7][e[2]]===e[4],t.__value=c=e[7][e[2]],t.value=t.__value},m(e,i){f(e,t,i),d(t,n)},p(e,r){9&r&&o!==(o=e[7][e[3]]+"")&&k(n,o),21&r&&i!==(i=e[7][e[2]]===e[4])&&(t.selected=i),5&r&&c!==(c=e[7][e[2]])&&(t.__value=c,t.value=t.__value)},d(e){e&&p(t)}}}function Ve(t){let n,i=t[0].length>0&&Ce(t);return{c(){i&&i.c(),n=g("")},m(e,t){i&&i.m(e,t),f(e,n,t)},p(e,[t]){e[0].length>0?i?i.p(e,t):(i=Ce(e),i.c(),i.m(n.parentNode,n)):i&&(i.d(1),i=null)},i:e,o:e,d(e){i&&i.d(e),e&&p(n)}}}function De(e,t,n){const i=U();let{items:c=[]}=t,{title:o="<label of select>"}=t,{key:r}=t,{value:s}=t,{defaultValue:a}=t;return e.$$set=e=>{"items"in e&&n(0,c=e.items),"title"in e&&n(1,o=e.title),"key"in e&&n(2,r=e.key),"value"in e&&n(3,s=e.value),"defaultValue"in e&&n(4,a=e.defaultValue)},[c,o,r,s,a,function(e){i("onSelect",e.target.value)}]}class Oe extends ee{constructor(e){super(),K(this,e,De,Ve,r,{items:0,title:1,key:2,value:3,defaultValue:4})}}function Me(e){let t,n,i;return n=new be({}),{c(){t=$("div"),Z(n.$$.fragment),w(t,"class","spinner-wrap svelte-14miyum")},m(e,c){f(e,t,c),G(n,t,null),i=!0},i(e){i||(J(n.$$.fragment,e),i=!0)},o(e){F(n.$$.fragment,e),i=!1},d(e){e&&p(t),Q(n)}}}function je(e){let t;return{c(){t=g("Save")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function Ae(e){let t,n,i,c,o,r,s,a,l,u,m,g,h=!ke(),y=!e[0]&&Me();r=new Oe({props:{defaultValue:e[4]?.deviceId,key:"deviceId",value:"label",title:"Default camera",items:Ne(e[1])}}),r.$on("onSelect",e[7]),a=new Oe({props:{defaultValue:e[5]?.deviceId,key:"deviceId",value:"label",title:"Default microphone",items:Ne(e[2])}}),a.$on("onSelect",e[8]);let b=h&&function(e){let t,n;return t=new Oe({props:{defaultValue:e[6]?.deviceId,key:"deviceId",value:"label",title:"Default speaker",items:Ne(e[3])}}),t.$on("onSelect",e[9]),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},p(e,n){const i={};64&n&&(i.defaultValue=e[6]?.deviceId),8&n&&(i.items=Ne(e[3])),t.$set(i)},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}(e);return m=new ve({props:{$$slots:{default:[je]},$$scope:{ctx:e}}}),m.$on("onClick",e[10]),{c(){t=$("div"),n=$("div"),y&&y.c(),i=v(),c=$("div"),c.innerHTML='<video playsinline="" autoplay="" muted="" id="video" class="svelte-14miyum"></video>',o=v(),Z(r.$$.fragment),s=v(),Z(a.$$.fragment),l=v(),b&&b.c(),u=v(),Z(m.$$.fragment),w(c,"class","video-container svelte-14miyum"),w(n,"class","main-modal svelte-14miyum"),w(t,"class","main-modal-wrap svelte-14miyum")},m(e,p){f(e,t,p),d(t,n),y&&y.m(n,null),d(n,i),d(n,c),d(n,o),G(r,n,null),d(n,s),G(a,n,null),d(n,l),b&&b.m(n,null),d(n,u),G(m,n,null),g=!0},p(e,[t]){e[0]?y&&(B(),F(y,1,1,(()=>{y=null})),H()):y?1&t&&J(y,1):(y=Me(),y.c(),J(y,1),y.m(n,i));const c={};16&t&&(c.defaultValue=e[4]?.deviceId),2&t&&(c.items=Ne(e[1])),r.$set(c);const o={};32&t&&(o.defaultValue=e[5]?.deviceId),4&t&&(o.items=Ne(e[2])),a.$set(o),h&&b.p(e,t);const s={};536870912&t&&(s.$$scope={dirty:t,ctx:e}),m.$set(s)},i(e){g||(J(y),J(r.$$.fragment,e),J(a.$$.fragment,e),J(b),J(m.$$.fragment,e),g=!0)},o(e){F(y),F(r.$$.fragment,e),F(a.$$.fragment,e),F(b),F(m.$$.fragment,e),g=!1},d(e){e&&p(t),y&&y.d(),Q(r),Q(a),b&&b.d(),Q(m)}}}function Ne(e){return e.filter((e=>!["default","communications"].includes(e.deviceId)))}function Le(e,t,n){let i,c,o,r,s=[],a=[],l=[];T((async()=>{try{const e=Ie();e&&(n(4,c=e.selectedCamera),n(5,o=e.selectedMicrophone),n(6,r=e.selectedSpeaker)),p(),m(),await $(),await g(),v()}catch(e){if(["OverconstrainedError","ConstraintNotSatisfiedError"].includes(e.name))return u(),void oe.update((e=>"Unable to fetch stream from previously selected devices. They might be unplugged"));const t=he(e.name);oe.update((e=>t)),ie.update((e=>!1))}}));const u=async()=>{n(4,c=null),n(5,o=null),await $(),await g(),v(),Ee({selectedCamera:c,selectedMicrophone:o,selectedSpeaker:r})},d=e=>{"Escape"===e.key&&ie.update((e=>!1))},f=e=>{const t=document.querySelector(".main-modal-wrap");e.target.contains(t)&&ie.update((e=>!1))},p=()=>{window.addEventListener("keydown",d)},m=()=>{window.addEventListener("click",f)},$=async()=>{const e=document.getElementById("video"),t=_e(c,o);n(0,i=await xe(t)),e.srcObject=i},g=async()=>{const[e,t,i]=await(async()=>{const e=await navigator.mediaDevices.enumerateDevices();return[Se(e,"videoinput"),Se(e,"audioinput"),Se(e,"audiooutput")]})();n(1,s=e),n(2,a=t),n(3,l=i)},v=()=>{n(4,c=h()),n(5,o=y()),n(6,r=w(l))},h=()=>b(s),y=()=>b(a),w=e=>{if(Ie())return r;const[t]=Ne(e);return t||e[0]},b=e=>{const t=k(),n=e.find((e=>t.includes(e.label)))?.groupId;return Ne(e).find((e=>e.groupId===n))},k=()=>i.getTracks().map((e=>e.label)),x=(e,t)=>{const[n]=_(e,"deviceId",t);return n},_=(e,t,n)=>e.filter((e=>e[t]===n)),S=()=>{i&&i.getTracks().map((e=>e.stop())),n(0,i=null),video.srcObject=null};return C((()=>{S(),window.removeEventListener("keydown",d),window.removeEventListener("click",f)})),[i,s,a,l,c,o,r,async function({detail:e}){try{const t=e;n(4,c=x(Ne(s),t)),S(),n(0,i=await xe(_e(c,o))),video.srcObject=i}catch(e){const t=he(e.name);oe.update((e=>t)),ie.update((e=>!1))}},function({detail:e}){const t=e;n(5,o=x(Ne(a),t))},function({detail:e}){const t=e;n(6,r=x(Ne(l),t))},function(){Ee({selectedCamera:c,selectedMicrophone:o,selectedSpeaker:r}),ie.update((e=>!1))}]}class ze extends ee{constructor(e){super(),K(this,e,Le,Ae,r,{})}}const Pe=io("https://calling-daniel-application.herokuapp.com/"),Re=(e,t)=>{Pe.on(e,t)},Ye=e=>{Pe.off(e)},qe=(e,t)=>{Pe.emit(e,t)};function Be(e){let t,n;const i=e[1].default,c=s(i,e,e[0],null);return{c(){t=$("span"),c&&c.c(),w(t,"role","img")},m(e,i){f(e,t,i),c&&c.m(t,null),n=!0},p(e,[t]){c&&c.p&&1&t&&l(c,i,e,e[0],t,null,null)},i(e){n||(J(c,e),n=!0)},o(e){F(c,e),n=!1},d(e){e&&p(t),c&&c.d(e)}}}function He(e,t,n){let{$$slots:i={},$$scope:c}=t;return e.$$set=e=>{"$$scope"in e&&n(0,c=e.$$scope)},[c,i]}class Je extends ee{constructor(e){super(),K(this,e,He,Be,r,{})}}function Fe(t){let n;return{c(){n=$("div"),n.innerHTML='<span class="svelte-5vsjiz">☞☚</span>',w(n,"class","split svelte-5vsjiz")},m(e,t){f(e,n,t)},p:e,i:e,o:e,d(e){e&&p(n)}}}class We extends ee{constructor(e){super(),K(this,e,null,Fe,r,{})}}function Ze(t){let n,i,o,r,s,a,l,u,m,y,b,x,_,S;return{c(){n=$("div"),i=$("div"),o=$("h3"),r=$("b"),s=g(t[0]),a=g(" is calling you"),l=v(),u=$("div"),m=$("button"),m.innerHTML='<i class="fas fa-phone-volume"></i>',y=v(),b=$("div"),x=$("button"),x.innerHTML='<i class="fas fa-phone"></i>',w(o,"class","username-label svelte-5nlicx"),w(m,"class","svelte-5nlicx"),w(u,"class","accept-call-container svelte-5nlicx"),w(x,"class","svelte-5nlicx"),w(b,"class","drop-call-container svelte-5nlicx"),w(i,"class","incoming svelte-5nlicx"),w(n,"class","incoming-wrap svelte-5nlicx")},m(e,c){f(e,n,c),d(n,i),d(i,o),d(o,r),d(r,s),d(o,a),d(i,l),d(i,u),d(u,m),d(i,y),d(i,b),d(b,x),_||(S=[h(m,"click",t[1]),h(x,"click",t[2])],_=!0)},p(e,[t]){1&t&&k(s,e[0])},i:e,o:e,d(e){e&&p(n),_=!1,c(S)}}}function Ge(e,t,n){const i=U();let{username:c}=t;return e.$$set=e=>{"username"in e&&n(0,c=e.username)},[c,function(){i("onAccept")},function(){i("onDrop")}]}class Qe extends ee{constructor(e){super(),K(this,e,Ge,Ze,r,{username:0})}}const Xe=(...e)=>t=>e.reduce(((e,t)=>t(e)),t),Ke=Xe((e=>(console.log(`%c👉👈 (webrtc) ${e}`,"color: #2dd713; font-weight: bold; font-size: 0.9rem; "),e))),et=Xe((e=>(console.log(`%c❌❌ (webrtc) ${e}`,"color: tomato; font-weight: bold; font-size: 0.9rem; "),e))),tt=[{urls:"stun:stun.voipstunt.com"},{urls:"turn:numb.viagenie.ca",credential:"muazkh",username:"webrtc@live.com"},{urls:"turn:192.158.29.39:3478?transport=udp",credential:"JZEOEt2V3Qb0y27GRntt2u2PAYA=",username:"28224511:1379330808"}],nt=e=>{switch(e){case"video-call":return{offer:"video-offer",answer:"video-answer",iceCandidate:"ice-candidate"};case"screenshare":return{offer:"video-screen-sharing-offer",answer:"video-screen-sharing-answer",iceCandidate:"ice-screen-sharing-candidate"};default:return{}}},it=e=>{e&&(e.getTracks().map((e=>e.stop())),e=null)},ct=(e,t)=>{const n=document.getElementById(e);n&&t&&(n.srcObject=t)},ot=()=>new RTCPeerConnection({iceServers:tt}),rt=(e,t)=>{t.getTracks().forEach((n=>{e.addTrack(n,t)}))},st=e=>{e&&(e.ontrack=null,e.onremovetrack=null,e.onremovestream=null,e.onicecandidate=null,e.oniceconnectionstatechange=null,e.onsignalingstatechange=null,e.onicegatheringstatechange=null,e.onnegotiationneeded=null,e.close(),e=null)};function at(e){let t,n;return t=new be({props:{style:"position: absolute"}}),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}function lt(e){let t,n,i,o,r,s,a,l,u,m,y,b,x,S,E,I,T,C,U,V,D,O,M,j,A,N,L,z,P,R,Y,q,W,Z,G,Q=!e[3]&&at();return{c(){t=$("div"),n=$("div"),i=$("div"),o=$("video"),s=v(),a=$("video"),l=v(),Q&&Q.c(),u=v(),m=$("div"),m.innerHTML='<video playsinline="" id="participantPrimaryVideo" autoplay="" class="svelte-cm9yfc"></video>',y=v(),b=$("div"),x=$("div"),S=$("button"),E=$("span"),I=g(e[4]),T=v(),C=$("i"),U=v(),V=$("button"),V.innerHTML='<span class="tooltip svelte-cm9yfc">End Call</span> \n          <i class="fas fa-phone svelte-cm9yfc"></i>',D=v(),O=$("button"),M=$("span"),j=g(e[5]),A=v(),N=$("i"),L=v(),z=$("button"),P=$("span"),R=g(e[6]),Y=v(),q=$("i"),o.playsInline=!0,w(o,"id","yourVideo"),o.autoplay=!0,o.muted=r=!0,w(o,"class","svelte-cm9yfc"),_(o,"shadow",e[3]),a.playsInline=!0,w(a,"id","participantSecondaryVideo"),a.autoplay=!0,w(a,"class","svelte-cm9yfc"),w(i,"class","yourVideo-container svelte-cm9yfc"),_(i,"hidden",e[2]),w(m,"class","participant-video-container svelte-cm9yfc"),w(E,"class","tooltip svelte-cm9yfc"),w(C,"class","fas fa-video"),w(S,"class","action-button action-button__video svelte-cm9yfc"),_(S,"mute",e[2]),w(V,"class","action-button action-button__end-call svelte-cm9yfc"),w(M,"class","tooltip svelte-cm9yfc"),w(N,"class","fas fa-microphone-alt"),w(O,"class","action-button action-button__audio svelte-cm9yfc"),_(O,"mute",e[1]),w(P,"class","tooltip svelte-cm9yfc"),w(q,"class","fas fa-desktop"),w(z,"class","action-button action-button__sharing svelte-cm9yfc"),_(z,"sharing",e[0]),w(x,"class","call-menu-actions svelte-cm9yfc"),w(b,"class","call-menu svelte-cm9yfc"),w(n,"class","incoming svelte-cm9yfc"),w(t,"class","incoming-wrap svelte-cm9yfc")},m(c,r){f(c,t,r),d(t,n),d(n,i),d(i,o),d(i,s),d(i,a),d(i,l),Q&&Q.m(i,null),d(n,u),d(n,m),d(n,y),d(n,b),d(b,x),d(x,S),d(S,E),d(E,I),d(S,T),d(S,C),d(x,U),d(x,V),d(x,D),d(x,O),d(O,M),d(M,j),d(O,A),d(O,N),d(x,L),d(x,z),d(z,P),d(P,R),d(z,Y),d(z,q),W=!0,Z||(G=[h(S,"click",e[7]),h(V,"click",ut),h(O,"click",e[9]),h(z,"click",e[8])],Z=!0)},p(e,t){8&t[0]&&_(o,"shadow",e[3]),e[3]?Q&&(B(),F(Q,1,1,(()=>{Q=null})),H()):Q?8&t[0]&&J(Q,1):(Q=at(),Q.c(),J(Q,1),Q.m(i,null)),4&t[0]&&_(i,"hidden",e[2]),(!W||16&t[0])&&k(I,e[4]),4&t[0]&&_(S,"mute",e[2]),(!W||32&t[0])&&k(j,e[5]),2&t[0]&&_(O,"mute",e[1]),(!W||64&t[0])&&k(R,e[6]),1&t[0]&&_(z,"sharing",e[0])},i(e){W||(J(Q),W=!0)},o(e){F(Q),W=!1},d(e){e&&p(t),Q&&Q.d(),Z=!1,c(G)}}}function ut(){}function dt(e,t,n){let i,c,o,r,s,a,{uid:l}=t,{participantUid:u}=t,{username:d}=t,{initiator:f}=t,p=!1,m=!1,$=!1;const g=new Map,v=async(e,t="video-call")=>{const{offer:n,answer:i}=nt(t);e.onnegotiationneeded=async()=>{e.createOffer().then((t=>e.setLocalDescription(t))).then((()=>{a=setInterval((()=>{qe(n,{initiatorUid:l,targetUid:u,sdp:e.localDescription}),Ke(`${n} sent to another peer`)}),1e3)})).catch(y)},Re(i,(function(n){Ke(`got ${i} from another peer`),clearInterval(a),e.setRemoteDescription(new RTCSessionDescription(n.sdp)),b(e,t),Ye(i)}))},h=(e,t="video-call")=>{const{offer:n,answer:i}=nt(t);Re(n,(async c=>{Ke("received offer from another peer"),e.setRemoteDescription(new RTCSessionDescription(c.sdp)).then((()=>e.createAnswer())).then((t=>e.setLocalDescription(t))).then((()=>{qe(i,{initiatorUid:l,targetUid:u,sdp:e.localDescription})})).catch(y),b(e,t),Ye(n)}))},y=e=>{et("Something went wrong during webrtc handshaking."),oe.update((e=>"Something went wrong during the handshaking.")),oe.update((e=>"Reload the page and try again.")),clearInterval(a),console.error(e)},w=e=>e.values().next(),b=(e,t)=>{const{iceCandidate:n}=nt(t);e.ontrack=e=>{var t;t=e.streams[0],g.has(t.id)||(g.set(t.id,t),1===g.size?ct("participantPrimaryVideo",t):2===g.size&&(ct("participantSecondaryVideo",w(g).value),ct("participantPrimaryVideo",t))),Ke("tracks came from another peer")},e.onicecandidate=e=>{e.candidate&&qe(n,{initiatorUid:l,targetUid:u,candidate:e.candidate})},Re(n,(t=>{t.candidate&&(Ke(`${n} - received`),e.addIceCandidate(new RTCIceCandidate(t.candidate)))}))},k=async()=>xe(_e(i?.selectedCamera,i?.selectedMicrophone)),x=e=>{Object.values(nt(e)).map((e=>{Ye(e)}))},_=async()=>{o=await navigator.mediaDevices.getDisplayMedia({audio:!0,video:!0}),s=ot(),qe("start-screen-sharing",{initiatorUid:l,targetUid:u,sdp:s.localDescription}),rt(s,o),v(s,"screenshare"),o.getVideoTracks()[0].onended=S,n(0,p=!0)},S=()=>{n(0,p=!1),qe("stop-screen-sharing",{initiatorUid:l,targetUid:u,streamId:o.id}),st(s),x("screenshare"),it(o),o=null};let E,I,U;return T((async()=>{try{i=Ie(),n(3,c=await k()),ct("yourVideo",c),(async(e,t)=>{try{if(!e||!t)return;const n=document.getElementById(e);n&&t.deviceId&&!ke()&&await n.setSinkId(t.deviceId)}catch(e){const t=he(e.name);oe.update((e=>t)),oe.update((e=>"Cannot play audio on the selected speaker. Default speaker is used.")),Ee({selectedCamera:i?.selectedCamera,selectedMicrophone:i?.selectedMicrophone})}})("participantVideo",i?.selectedSpeaker),r=ot(),rt(r,c),f?v(r,"video-call"):h(r,"video-call"),Re("participant-starts-screen-sharing",(()=>{s=ot(),h(s,"screenshare")})),Re("participant-stops-screen-sharing",(({streamId:e})=>{st(s),x("screenshare"),it(g.get(e)),g.delete(e),(e=>{const t=document.getElementById(e);t.srcObject=null,t.removeAttribute("srcObject")})("participantSecondaryVideo"),ct("participantPrimaryVideo",w(g).value)}))}catch(e){const t=he(e.name);oe.update((e=>t)),clearInterval(a)}})),C((()=>{it(c),it(o)})),e.$$set=e=>{"uid"in e&&n(10,l=e.uid),"participantUid"in e&&n(11,u=e.participantUid),"username"in e&&n(12,d=e.username),"initiator"in e&&n(13,f=e.initiator)},e.$$.update=()=>{4&e.$$.dirty[0]&&n(4,E=$?"Unmute Video":"Mute Video"),2&e.$$.dirty[0]&&n(5,I=m?"Unmute Audio":"Mute Audio"),1&e.$$.dirty[0]&&n(6,U=p?"Stop Sharing Screen":"Share Screen")},[p,m,$,c,E,I,U,async function(){if(n(2,$=!$),$)c.getVideoTracks()[0].enabled=!1,setTimeout((()=>{c.getVideoTracks()[0].stop(),c.removeTrack(c.getVideoTracks()[0])}),150);else{const e=await k(),t=((e,t,n)=>{const i=t.getTracks().find((e=>e.kind===n));return e.getSenders().find((e=>e.track.kind===n)).replaceTrack(i),i})(r,e,"video");c.addTrack(t),ct("yourVideo",c)}},async function(){try{p?S():_()}catch(e){if("NotAllowedError"===e.name)return oe.update((e=>"You've canceled sharing screen"));oe.update((e=>"Something went wrong during a screen sharing. Your browser may not support this feature ;(")),console.error(e)}},function(){n(1,m=!m),c.getAudioTracks()[0].enabled=!c.getAudioTracks()[0].enabled},l,u,d,f]}class ft extends ee{constructor(e){super(),K(this,e,dt,lt,r,{uid:10,participantUid:11,username:12,initiator:13},[-1,-1])}}function pt(e){let t;return{c(){t=g("🤙")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function mt(e){let t,n,i,o,r,s,a,l,u,m,b,_,S,E,I,T,C,U,V,D,O,M;return _=new We({}),V=new ve({props:{type:"submit",disabled:e[10],$$slots:{default:[gt]},$$scope:{ctx:e}}}),{c(){t=$("div"),n=$("h2"),n.textContent="Your identifier is",i=v(),o=$("h3"),r=g(e[3]),s=v(),a=$("span"),l=g(e[4]),u=v(),m=$("h3"),m.textContent="Send it to the one who wanna call you and you will get in touch",b=v(),Z(_.$$.fragment),S=v(),E=$("h3"),E.textContent="or enter identifier shared with you below",I=v(),T=$("form"),C=$("input"),U=v(),Z(V.$$.fragment),w(a,"class","svelte-1r6i828"),w(o,"class","uid-label svelte-1r6i828"),w(C,"type","text"),w(C,"id","name-input"),w(C,"placeholder","XYZZ"),w(C,"class","svelte-1r6i828"),w(t,"class","uid-block svelte-1r6i828")},m(c,p){f(c,t,p),d(t,n),d(t,i),d(t,o),d(o,r),d(o,s),d(o,a),d(a,l),d(t,u),d(t,m),d(t,b),G(_,t,null),d(t,S),d(t,E),d(t,I),d(t,T),d(T,C),x(C,e[0]),d(T,U),G(V,T,null),D=!0,O||(M=[h(a,"click",e[14]),h(C,"input",e[18]),h(T,"submit",y(e[13]))],O=!0)},p(e,t){(!D||8&t)&&k(r,e[3]),(!D||16&t)&&k(l,e[4]),1&t&&C.value!==e[0]&&x(C,e[0]);const n={};1024&t&&(n.disabled=e[10]),2097152&t&&(n.$$scope={dirty:t,ctx:e}),V.$set(n)},i(e){D||(J(_.$$.fragment,e),J(V.$$.fragment,e),D=!0)},o(e){F(_.$$.fragment,e),F(V.$$.fragment,e),D=!1},d(e){e&&p(t),Q(_),Q(V),O=!1,c(M)}}}function $t(e){let t,n,i,o,r,s,a,l,u,m;return a=new ve({props:{type:"submit",disabled:!e[2],$$slots:{default:[vt]},$$scope:{ctx:e}}}),{c(){var e,c,l;t=$("div"),n=$("h2"),n.textContent="Who are you?",i=v(),o=$("form"),r=$("input"),s=v(),Z(a.$$.fragment),e="margin",c="20px",n.style.setProperty(e,c,l?"important":""),w(r,"type","text"),w(r,"id","name-input"),w(r,"placeholder","What is your name, hero?"),w(r,"class","svelte-1r6i828"),w(t,"class","join-form svelte-1r6i828")},m(c,p){f(c,t,p),d(t,n),d(t,i),d(t,o),d(o,r),x(r,e[2]),d(o,s),G(a,o,null),l=!0,u||(m=[h(r,"input",e[17]),h(o,"submit",y(e[12]))],u=!0)},p(e,t){4&t&&r.value!==e[2]&&x(r,e[2]);const n={};4&t&&(n.disabled=!e[2]),2097152&t&&(n.$$scope={dirty:t,ctx:e}),a.$set(n)},i(e){l||(J(a.$$.fragment,e),l=!0)},o(e){F(a.$$.fragment,e),l=!1},d(e){e&&p(t),Q(a),u=!1,c(m)}}}function gt(e){let t;return{c(){t=g("Call")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function vt(e){let t;return{c(){t=g("Join")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function ht(e){let t,n,i;function c(e,t){return e[1]?wt:yt}let o=c(e),r=o(e);return{c(){t=$("span"),r.c(),w(t,"class","open-settings-btn svelte-1r6i828")},m(c,o){f(c,t,o),r.m(t,null),n||(i=h(t,"click",e[11]),n=!0)},p(e,n){o!==(o=c(e))&&(r.d(1),r=o(e),r&&(r.c(),r.m(t,null)))},d(e){e&&p(t),r.d(),n=!1,i()}}}function yt(e){let t;return{c(){t=$("i"),w(t,"class","fas fa-cog")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function wt(e){let t;return{c(){t=$("i"),w(t,"class","fas fa-times")},m(e,n){f(e,t,n)},d(e){e&&p(t)}}}function bt(e){let t,n;return t=new ft({props:{initiator:e[7],uid:e[3],participantUid:e[9].initiatorUid,username:e[9].username}}),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},p(e,n){const i={};128&n&&(i.initiator=e[7]),8&n&&(i.uid=e[3]),512&n&&(i.participantUid=e[9].initiatorUid),512&n&&(i.username=e[9].username),t.$set(i)},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}function kt(e){let t,n;return t=new ze({}),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}function xt(e){let t,n;return t=new Qe({props:{username:e[9].username}}),t.$on("onAccept",e[15]),t.$on("onDrop",e[16]),{c(){Z(t.$$.fragment)},m(e,i){G(t,e,i),n=!0},p(e,n){const i={};512&n&&(i.username=e[9].username),t.$set(i)},i(e){n||(J(t.$$.fragment,e),n=!0)},o(e){F(t.$$.fragment,e),n=!1},d(e){Q(t,e)}}}function _t(e){let t,n,i,c,o,r,s,a,l,u,m,h,y,b,k,x,_;c=new Je({props:{$$slots:{default:[pt]},$$scope:{ctx:e}}}),s=new We({});const S=[$t,mt],E=[];function I(e,t){return e[5]?1:0}l=I(e),u=E[l]=S[l](e);let T=!e[6]&&ht(e),C=e[6]&&bt(e),U=e[1]&&kt(),V=e[8]&&xt(e);return x=new me({}),{c(){t=$("main"),n=$("h1"),i=g("So\r\n    "),Z(c.$$.fragment),o=g("\r\n    me maybe!"),r=v(),Z(s.$$.fragment),a=v(),u.c(),m=v(),T&&T.c(),h=v(),C&&C.c(),y=v(),U&&U.c(),b=v(),V&&V.c(),k=v(),Z(x.$$.fragment),w(n,"class","svelte-1r6i828"),w(t,"class","svelte-1r6i828")},m(e,u){f(e,t,u),d(t,n),d(n,i),G(c,n,null),d(n,o),d(t,r),G(s,t,null),d(t,a),E[l].m(t,null),d(t,m),T&&T.m(t,null),d(t,h),C&&C.m(t,null),f(e,y,u),U&&U.m(e,u),f(e,b,u),V&&V.m(e,u),f(e,k,u),G(x,e,u),_=!0},p(e,[n]){const i={};2097152&n&&(i.$$scope={dirty:n,ctx:e}),c.$set(i);let o=l;l=I(e),l===o?E[l].p(e,n):(B(),F(E[o],1,1,(()=>{E[o]=null})),H(),u=E[l],u?u.p(e,n):(u=E[l]=S[l](e),u.c()),J(u,1),u.m(t,m)),e[6]?T&&(T.d(1),T=null):T?T.p(e,n):(T=ht(e),T.c(),T.m(t,h)),e[6]?C?(C.p(e,n),64&n&&J(C,1)):(C=bt(e),C.c(),J(C,1),C.m(t,null)):C&&(B(),F(C,1,1,(()=>{C=null})),H()),e[1]?U?2&n&&J(U,1):(U=kt(),U.c(),J(U,1),U.m(b.parentNode,b)):U&&(B(),F(U,1,1,(()=>{U=null})),H()),e[8]?V?(V.p(e,n),256&n&&J(V,1)):(V=xt(e),V.c(),J(V,1),V.m(k.parentNode,k)):V&&(B(),F(V,1,1,(()=>{V=null})),H())},i(e){_||(J(c.$$.fragment,e),J(s.$$.fragment,e),J(u),J(C),J(U),J(V),J(x.$$.fragment,e),_=!0)},o(e){F(c.$$.fragment,e),F(s.$$.fragment,e),F(u),F(C),F(U),F(V),F(x.$$.fragment,e),_=!1},d(e){e&&p(t),Q(c),Q(s),E[l].d(),T&&T.d(),C&&C.d(),e&&p(y),U&&U.d(e),e&&p(b),V&&V.d(e),e&&p(k),Q(x,e)}}}function St(e,t,n){let i,c,o,r,s,a="Click to copy",l=!1,u=!1,d=!1,f=!1;T((()=>{const e=(()=>{const e=localStorage.getItem("__user_token");return e?JSON.parse(e):null})();ce.update((()=>e))}));let p;return Re("welcome",(e=>{n(5,l=!0),ce.update((t=>e)),n(3,o=e.uid),(e=>{localStorage.setItem("__user_token",JSON.stringify(e))})(e)})),Re("incoming-call",(e=>{n(8,f=!0),n(9,s=e)})),Re("user-is-not-joined",(()=>{oe.update((e=>"User is not joined yet or identifier is not correct."))})),ce.subscribe((e=>n(2,c=e?.name))),ie.subscribe((e=>{n(1,i=e)})),e.$$.update=()=>{1&e.$$.dirty&&n(10,p=!(r&&4===r.length))},[r,i,c,o,a,l,u,d,f,s,p,function(){ie.update((e=>!e))},function(e){qe("join",c)},function(){n(7,d=!0),qe("try-call",{username:c,targetUid:r,initiatorUid:o}),Re("accept-call",(e=>{n(6,u=!0),n(8,f=!1),n(9,s=e)})),Re("drop-call",(()=>{oe.update((e=>"Participant has dropped the call")),n(9,s=null),n(8,f=!1),n(7,d=!1),Ye("accept-call"),Ye("drop-call")}))},function(){n(4,a="Copied"),(e=>{navigator.clipboard.writeText(e)})(o)},function(){n(6,u=!0),n(8,f=!1),n(7,d=!1),qe("accept-call",{username:c,targetUid:s.initiatorUid,initiatorUid:o})},function(){qe("drop-call",{username:c,targetUid:s.initiatorUid,initiatorUid:o}),n(9,s=null),n(8,f=!1),Ye("accept-call"),Ye("drop-call")},function(){c=this.value,n(2,c)},function(){r=this.value,n(0,r)}]}return new class extends ee{constructor(e){super(),K(this,e,St,_t,r,{})}}({target:document.body})}();
+
+(function(l, r) { if (l.getElementById('livereloadscript')) return; r = l.createElement('script'); r.async = 1; r.src = '//' + (window.location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1'; r.id = 'livereloadscript'; l.getElementsByTagName('head')[0].appendChild(r) })(window.document);
+var app = (function () {
+    'use strict';
+
+    function noop() { }
+    function assign(tar, src) {
+        // @ts-ignore
+        for (const k in src)
+            tar[k] = src[k];
+        return tar;
+    }
+    function add_location(element, file, line, column, char) {
+        element.__svelte_meta = {
+            loc: { file, line, column, char }
+        };
+    }
+    function run(fn) {
+        return fn();
+    }
+    function blank_object() {
+        return Object.create(null);
+    }
+    function run_all(fns) {
+        fns.forEach(run);
+    }
+    function is_function(thing) {
+        return typeof thing === 'function';
+    }
+    function safe_not_equal(a, b) {
+        return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+    }
+    function is_empty(obj) {
+        return Object.keys(obj).length === 0;
+    }
+    function create_slot(definition, ctx, $$scope, fn) {
+        if (definition) {
+            const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+            return definition[0](slot_ctx);
+        }
+    }
+    function get_slot_context(definition, ctx, $$scope, fn) {
+        return definition[1] && fn
+            ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+            : $$scope.ctx;
+    }
+    function get_slot_changes(definition, $$scope, dirty, fn) {
+        if (definition[2] && fn) {
+            const lets = definition[2](fn(dirty));
+            if ($$scope.dirty === undefined) {
+                return lets;
+            }
+            if (typeof lets === 'object') {
+                const merged = [];
+                const len = Math.max($$scope.dirty.length, lets.length);
+                for (let i = 0; i < len; i += 1) {
+                    merged[i] = $$scope.dirty[i] | lets[i];
+                }
+                return merged;
+            }
+            return $$scope.dirty | lets;
+        }
+        return $$scope.dirty;
+    }
+    function update_slot(slot, slot_definition, ctx, $$scope, dirty, get_slot_changes_fn, get_slot_context_fn) {
+        const slot_changes = get_slot_changes(slot_definition, $$scope, dirty, get_slot_changes_fn);
+        if (slot_changes) {
+            const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+            slot.p(slot_context, slot_changes);
+        }
+    }
+    function exclude_internal_props(props) {
+        const result = {};
+        for (const k in props)
+            if (k[0] !== '$')
+                result[k] = props[k];
+        return result;
+    }
+
+    function append(target, node) {
+        target.appendChild(node);
+    }
+    function insert(target, node, anchor) {
+        target.insertBefore(node, anchor || null);
+    }
+    function detach(node) {
+        node.parentNode.removeChild(node);
+    }
+    function destroy_each(iterations, detaching) {
+        for (let i = 0; i < iterations.length; i += 1) {
+            if (iterations[i])
+                iterations[i].d(detaching);
+        }
+    }
+    function element(name) {
+        return document.createElement(name);
+    }
+    function text(data) {
+        return document.createTextNode(data);
+    }
+    function space() {
+        return text(' ');
+    }
+    function empty() {
+        return text('');
+    }
+    function listen(node, event, handler, options) {
+        node.addEventListener(event, handler, options);
+        return () => node.removeEventListener(event, handler, options);
+    }
+    function prevent_default(fn) {
+        return function (event) {
+            event.preventDefault();
+            // @ts-ignore
+            return fn.call(this, event);
+        };
+    }
+    function attr(node, attribute, value) {
+        if (value == null)
+            node.removeAttribute(attribute);
+        else if (node.getAttribute(attribute) !== value)
+            node.setAttribute(attribute, value);
+    }
+    function set_attributes(node, attributes) {
+        // @ts-ignore
+        const descriptors = Object.getOwnPropertyDescriptors(node.__proto__);
+        for (const key in attributes) {
+            if (attributes[key] == null) {
+                node.removeAttribute(key);
+            }
+            else if (key === 'style') {
+                node.style.cssText = attributes[key];
+            }
+            else if (key === '__value') {
+                node.value = node[key] = attributes[key];
+            }
+            else if (descriptors[key] && descriptors[key].set) {
+                node[key] = attributes[key];
+            }
+            else {
+                attr(node, key, attributes[key]);
+            }
+        }
+    }
+    function children(element) {
+        return Array.from(element.childNodes);
+    }
+    function set_input_value(input, value) {
+        input.value = value == null ? '' : value;
+    }
+    function set_style(node, key, value, important) {
+        node.style.setProperty(key, value, important ? 'important' : '');
+    }
+    function toggle_class(element, name, toggle) {
+        element.classList[toggle ? 'add' : 'remove'](name);
+    }
+    function custom_event(type, detail) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, false, false, detail);
+        return e;
+    }
+
+    let current_component;
+    function set_current_component(component) {
+        current_component = component;
+    }
+    function get_current_component() {
+        if (!current_component)
+            throw new Error('Function called outside component initialization');
+        return current_component;
+    }
+    function onMount(fn) {
+        get_current_component().$$.on_mount.push(fn);
+    }
+    function onDestroy(fn) {
+        get_current_component().$$.on_destroy.push(fn);
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
+    }
+
+    const dirty_components = [];
+    const binding_callbacks = [];
+    const render_callbacks = [];
+    const flush_callbacks = [];
+    const resolved_promise = Promise.resolve();
+    let update_scheduled = false;
+    function schedule_update() {
+        if (!update_scheduled) {
+            update_scheduled = true;
+            resolved_promise.then(flush);
+        }
+    }
+    function add_render_callback(fn) {
+        render_callbacks.push(fn);
+    }
+    let flushing = false;
+    const seen_callbacks = new Set();
+    function flush() {
+        if (flushing)
+            return;
+        flushing = true;
+        do {
+            // first, call beforeUpdate functions
+            // and update components
+            for (let i = 0; i < dirty_components.length; i += 1) {
+                const component = dirty_components[i];
+                set_current_component(component);
+                update(component.$$);
+            }
+            set_current_component(null);
+            dirty_components.length = 0;
+            while (binding_callbacks.length)
+                binding_callbacks.pop()();
+            // then, once components are updated, call
+            // afterUpdate functions. This may cause
+            // subsequent updates...
+            for (let i = 0; i < render_callbacks.length; i += 1) {
+                const callback = render_callbacks[i];
+                if (!seen_callbacks.has(callback)) {
+                    // ...so guard against infinite loops
+                    seen_callbacks.add(callback);
+                    callback();
+                }
+            }
+            render_callbacks.length = 0;
+        } while (dirty_components.length);
+        while (flush_callbacks.length) {
+            flush_callbacks.pop()();
+        }
+        update_scheduled = false;
+        flushing = false;
+        seen_callbacks.clear();
+    }
+    function update($$) {
+        if ($$.fragment !== null) {
+            $$.update();
+            run_all($$.before_update);
+            const dirty = $$.dirty;
+            $$.dirty = [-1];
+            $$.fragment && $$.fragment.p($$.ctx, dirty);
+            $$.after_update.forEach(add_render_callback);
+        }
+    }
+    const outroing = new Set();
+    let outros;
+    function group_outros() {
+        outros = {
+            r: 0,
+            c: [],
+            p: outros // parent group
+        };
+    }
+    function check_outros() {
+        if (!outros.r) {
+            run_all(outros.c);
+        }
+        outros = outros.p;
+    }
+    function transition_in(block, local) {
+        if (block && block.i) {
+            outroing.delete(block);
+            block.i(local);
+        }
+    }
+    function transition_out(block, local, detach, callback) {
+        if (block && block.o) {
+            if (outroing.has(block))
+                return;
+            outroing.add(block);
+            outros.c.push(() => {
+                outroing.delete(block);
+                if (callback) {
+                    if (detach)
+                        block.d(1);
+                    callback();
+                }
+            });
+            block.o(local);
+        }
+    }
+
+    const globals = (typeof window !== 'undefined'
+        ? window
+        : typeof globalThis !== 'undefined'
+            ? globalThis
+            : global);
+
+    function get_spread_update(levels, updates) {
+        const update = {};
+        const to_null_out = {};
+        const accounted_for = { $$scope: 1 };
+        let i = levels.length;
+        while (i--) {
+            const o = levels[i];
+            const n = updates[i];
+            if (n) {
+                for (const key in o) {
+                    if (!(key in n))
+                        to_null_out[key] = 1;
+                }
+                for (const key in n) {
+                    if (!accounted_for[key]) {
+                        update[key] = n[key];
+                        accounted_for[key] = 1;
+                    }
+                }
+                levels[i] = n;
+            }
+            else {
+                for (const key in o) {
+                    accounted_for[key] = 1;
+                }
+            }
+        }
+        for (const key in to_null_out) {
+            if (!(key in update))
+                update[key] = undefined;
+        }
+        return update;
+    }
+    function create_component(block) {
+        block && block.c();
+    }
+    function mount_component(component, target, anchor) {
+        const { fragment, on_mount, on_destroy, after_update } = component.$$;
+        fragment && fragment.m(target, anchor);
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+        after_update.forEach(add_render_callback);
+    }
+    function destroy_component(component, detaching) {
+        const $$ = component.$$;
+        if ($$.fragment !== null) {
+            run_all($$.on_destroy);
+            $$.fragment && $$.fragment.d(detaching);
+            // TODO null out other refs, including component.$$ (but need to
+            // preserve final state?)
+            $$.on_destroy = $$.fragment = null;
+            $$.ctx = [];
+        }
+    }
+    function make_dirty(component, i) {
+        if (component.$$.dirty[0] === -1) {
+            dirty_components.push(component);
+            schedule_update();
+            component.$$.dirty.fill(0);
+        }
+        component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+    }
+    function init(component, options, instance, create_fragment, not_equal, props, dirty = [-1]) {
+        const parent_component = current_component;
+        set_current_component(component);
+        const prop_values = options.props || {};
+        const $$ = component.$$ = {
+            fragment: null,
+            ctx: null,
+            // state
+            props,
+            update: noop,
+            not_equal,
+            bound: blank_object(),
+            // lifecycle
+            on_mount: [],
+            on_destroy: [],
+            before_update: [],
+            after_update: [],
+            context: new Map(parent_component ? parent_component.$$.context : []),
+            // everything else
+            callbacks: blank_object(),
+            dirty,
+            skip_bound: false
+        };
+        let ready = false;
+        $$.ctx = instance
+            ? instance(component, prop_values, (i, ret, ...rest) => {
+                const value = rest.length ? rest[0] : ret;
+                if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                    if (!$$.skip_bound && $$.bound[i])
+                        $$.bound[i](value);
+                    if (ready)
+                        make_dirty(component, i);
+                }
+                return ret;
+            })
+            : [];
+        $$.update();
+        ready = true;
+        run_all($$.before_update);
+        // `false` as a special case of no DOM component
+        $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+        if (options.target) {
+            if (options.hydrate) {
+                const nodes = children(options.target);
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.l(nodes);
+                nodes.forEach(detach);
+            }
+            else {
+                // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+                $$.fragment && $$.fragment.c();
+            }
+            if (options.intro)
+                transition_in(component.$$.fragment);
+            mount_component(component, options.target, options.anchor);
+            flush();
+        }
+        set_current_component(parent_component);
+    }
+    /**
+     * Base class for Svelte components. Used when dev=false.
+     */
+    class SvelteComponent {
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    }
+
+    function dispatch_dev(type, detail) {
+        document.dispatchEvent(custom_event(type, Object.assign({ version: '3.31.0' }, detail)));
+    }
+    function append_dev(target, node) {
+        dispatch_dev('SvelteDOMInsert', { target, node });
+        append(target, node);
+    }
+    function insert_dev(target, node, anchor) {
+        dispatch_dev('SvelteDOMInsert', { target, node, anchor });
+        insert(target, node, anchor);
+    }
+    function detach_dev(node) {
+        dispatch_dev('SvelteDOMRemove', { node });
+        detach(node);
+    }
+    function listen_dev(node, event, handler, options, has_prevent_default, has_stop_propagation) {
+        const modifiers = options === true ? ['capture'] : options ? Array.from(Object.keys(options)) : [];
+        if (has_prevent_default)
+            modifiers.push('preventDefault');
+        if (has_stop_propagation)
+            modifiers.push('stopPropagation');
+        dispatch_dev('SvelteDOMAddEventListener', { node, event, handler, modifiers });
+        const dispose = listen(node, event, handler, options);
+        return () => {
+            dispatch_dev('SvelteDOMRemoveEventListener', { node, event, handler, modifiers });
+            dispose();
+        };
+    }
+    function attr_dev(node, attribute, value) {
+        attr(node, attribute, value);
+        if (value == null)
+            dispatch_dev('SvelteDOMRemoveAttribute', { node, attribute });
+        else
+            dispatch_dev('SvelteDOMSetAttribute', { node, attribute, value });
+    }
+    function prop_dev(node, property, value) {
+        node[property] = value;
+        dispatch_dev('SvelteDOMSetProperty', { node, property, value });
+    }
+    function set_data_dev(text, data) {
+        data = '' + data;
+        if (text.wholeText === data)
+            return;
+        dispatch_dev('SvelteDOMSetData', { node: text, data });
+        text.data = data;
+    }
+    function validate_each_argument(arg) {
+        if (typeof arg !== 'string' && !(arg && typeof arg === 'object' && 'length' in arg)) {
+            let msg = '{#each} only iterates over array-like objects.';
+            if (typeof Symbol === 'function' && arg && Symbol.iterator in arg) {
+                msg += ' You can use a spread to convert this iterable into an array.';
+            }
+            throw new Error(msg);
+        }
+    }
+    function validate_slots(name, slot, keys) {
+        for (const slot_key of Object.keys(slot)) {
+            if (!~keys.indexOf(slot_key)) {
+                console.warn(`<${name}> received an unexpected slot "${slot_key}".`);
+            }
+        }
+    }
+    /**
+     * Base class for Svelte components with some minor dev-enhancements. Used when dev=true.
+     */
+    class SvelteComponentDev extends SvelteComponent {
+        constructor(options) {
+            if (!options || (!options.target && !options.$$inline)) {
+                throw new Error("'target' is a required option");
+            }
+            super();
+        }
+        $destroy() {
+            super.$destroy();
+            this.$destroy = () => {
+                console.warn('Component was already destroyed'); // eslint-disable-line no-console
+            };
+        }
+        $capture_state() { }
+        $inject_state() { }
+    }
+
+    const subscriber_queue = [];
+    /**
+     * Create a `Writable` store that allows both updating and reading by subscription.
+     * @param {*=}value initial value
+     * @param {StartStopNotifier=}start start and stop notifications for subscriptions
+     */
+    function writable(value, start = noop) {
+        let stop;
+        const subscribers = [];
+        function set(new_value) {
+            if (safe_not_equal(value, new_value)) {
+                value = new_value;
+                if (stop) { // store is ready
+                    const run_queue = !subscriber_queue.length;
+                    for (let i = 0; i < subscribers.length; i += 1) {
+                        const s = subscribers[i];
+                        s[1]();
+                        subscriber_queue.push(s, value);
+                    }
+                    if (run_queue) {
+                        for (let i = 0; i < subscriber_queue.length; i += 2) {
+                            subscriber_queue[i][0](subscriber_queue[i + 1]);
+                        }
+                        subscriber_queue.length = 0;
+                    }
+                }
+            }
+        }
+        function update(fn) {
+            set(fn(value));
+        }
+        function subscribe(run, invalidate = noop) {
+            const subscriber = [run, invalidate];
+            subscribers.push(subscriber);
+            if (subscribers.length === 1) {
+                stop = start(set) || noop;
+            }
+            run(value);
+            return () => {
+                const index = subscribers.indexOf(subscriber);
+                if (index !== -1) {
+                    subscribers.splice(index, 1);
+                }
+                if (subscribers.length === 0) {
+                    stop();
+                    stop = null;
+                }
+            };
+        }
+        return { set, update, subscribe };
+    }
+
+    const deviceSelectorPopupSubject = writable(false);
+    const userInfoSubject = writable();
+    const criticalErrorSubject = writable('');
+
+    /* src\components\CriticalToast.svelte generated by Svelte v3.31.0 */
+
+    const file = "src\\components\\CriticalToast.svelte";
+
+    function create_fragment(ctx) {
+    	let div;
+    	let span;
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[2].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[1], null);
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			span = element("span");
+    			if (default_slot) default_slot.c();
+    			add_location(span, file, 21, 2, 342);
+    			attr_dev(div, "class", "critical-toast svelte-13x9d4n");
+    			toggle_class(div, "show", /*show*/ ctx[0]);
+    			add_location(div, file, 20, 0, 299);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span);
+
+    			if (default_slot) {
+    				default_slot.m(span, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 2) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[1], dirty, null, null);
+    				}
+    			}
+
+    			if (dirty & /*show*/ 1) {
+    				toggle_class(div, "show", /*show*/ ctx[0]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("CriticalToast", slots, ['default']);
+    	let { show = false } = $$props;
+    	const writable_props = ["show"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<CriticalToast> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("show" in $$props) $$invalidate(0, show = $$props.show);
+    		if ("$$scope" in $$props) $$invalidate(1, $$scope = $$props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({ show });
+
+    	$$self.$inject_state = $$props => {
+    		if ("show" in $$props) $$invalidate(0, show = $$props.show);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [show, $$scope, slots];
+    }
+
+    class CriticalToast extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance, create_fragment, safe_not_equal, { show: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "CriticalToast",
+    			options,
+    			id: create_fragment.name
+    		});
+    	}
+
+    	get show() {
+    		throw new Error("<CriticalToast>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set show(value) {
+    		throw new Error("<CriticalToast>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\CriticalToastContainer.svelte generated by Svelte v3.31.0 */
+    const file$1 = "src\\components\\CriticalToastContainer.svelte";
+
+    function get_each_context(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[3] = list[i];
+    	return child_ctx;
+    }
+
+    // (53:4) <CriticalToast show={error.status === 'visible'}>
+    function create_default_slot(ctx) {
+    	let t_value = /*error*/ ctx[3].text + "";
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text(t_value);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*errors*/ 1 && t_value !== (t_value = /*error*/ ctx[3].text + "")) set_data_dev(t, t_value);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot.name,
+    		type: "slot",
+    		source: "(53:4) <CriticalToast show={error.status === 'visible'}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (52:2) {#each errors as error}
+    function create_each_block(ctx) {
+    	let criticaltoast;
+    	let current;
+
+    	criticaltoast = new CriticalToast({
+    			props: {
+    				show: /*error*/ ctx[3].status === "visible",
+    				$$slots: { default: [create_default_slot] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(criticaltoast.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(criticaltoast, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const criticaltoast_changes = {};
+    			if (dirty & /*errors*/ 1) criticaltoast_changes.show = /*error*/ ctx[3].status === "visible";
+
+    			if (dirty & /*$$scope, errors*/ 65) {
+    				criticaltoast_changes.$$scope = { dirty, ctx };
+    			}
+
+    			criticaltoast.$set(criticaltoast_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(criticaltoast.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(criticaltoast.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(criticaltoast, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block.name,
+    		type: "each",
+    		source: "(52:2) {#each errors as error}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$1(ctx) {
+    	let div;
+    	let current;
+    	let each_value = /*errors*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+    	}
+
+    	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+    		each_blocks[i] = null;
+    	});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			attr_dev(div, "class", "critical-container svelte-vvip71");
+    			add_location(div, file$1, 50, 0, 976);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(div, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*errors*/ 1) {
+    				each_value = /*errors*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    						transition_in(each_blocks[i], 1);
+    					} else {
+    						each_blocks[i] = create_each_block(child_ctx);
+    						each_blocks[i].c();
+    						transition_in(each_blocks[i], 1);
+    						each_blocks[i].m(div, null);
+    					}
+    				}
+
+    				group_outros();
+
+    				for (i = each_value.length; i < each_blocks.length; i += 1) {
+    					out(i);
+    				}
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+
+    			for (let i = 0; i < each_value.length; i += 1) {
+    				transition_in(each_blocks[i]);
+    			}
+
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			each_blocks = each_blocks.filter(Boolean);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				transition_out(each_blocks[i]);
+    			}
+
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$1.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$1($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("CriticalToastContainer", slots, []);
+    	let errors = [];
+
+    	const _onErrorOccured = er => {
+    		if (!er) {
+    			return;
+    		}
+
+    		$$invalidate(0, errors = [...errors, { text: er, status: "visible" }]);
+
+    		setTimeout(
+    			() => {
+    				$$invalidate(0, errors = errors.map(e => {
+    					if (e.text === er) {
+    						return { text: er, status: "hidden" };
+    					}
+
+    					return e;
+    				}));
+    			},
+    			3500
+    		);
+
+    		setTimeout(
+    			() => {
+    				_unshiftError();
+    				criticalErrorSubject.set("");
+    			},
+    			4000
+    		);
+    	};
+
+    	const _unshiftError = () => {
+    		errors.shift();
+    		$$invalidate(0, errors);
+    	};
+
+    	criticalErrorSubject.subscribe(_onErrorOccured);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<CriticalToastContainer> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		criticalErrorSubject,
+    		CriticalToast,
+    		errors,
+    		_onErrorOccured,
+    		_unshiftError
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("errors" in $$props) $$invalidate(0, errors = $$props.errors);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [errors];
+    }
+
+    class CriticalToastContainer extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$1, create_fragment$1, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "CriticalToastContainer",
+    			options,
+    			id: create_fragment$1.name
+    		});
+    	}
+    }
+
+    const copy = (text) => {
+      navigator.clipboard.writeText(text);
+    };
+
+    /* src\components\Button.svelte generated by Svelte v3.31.0 */
+    const file$2 = "src\\components\\Button.svelte";
+
+    function create_fragment$2(ctx) {
+    	let button;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	const default_slot_template = /*#slots*/ ctx[4].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[3], null);
+    	let button_levels = [/*$$props*/ ctx[2], { type: /*type*/ ctx[0] }];
+    	let button_data = {};
+
+    	for (let i = 0; i < button_levels.length; i += 1) {
+    		button_data = assign(button_data, button_levels[i]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			button = element("button");
+    			if (default_slot) default_slot.c();
+    			set_attributes(button, button_data);
+    			toggle_class(button, "svelte-fp4ngz", true);
+    			add_location(button, file$2, 31, 0, 577);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, button, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(button, null);
+    			}
+
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = listen_dev(button, "click", /*handleClick*/ ctx[1], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 8) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[3], dirty, null, null);
+    				}
+    			}
+
+    			set_attributes(button, button_data = get_spread_update(button_levels, [
+    				dirty & /*$$props*/ 4 && /*$$props*/ ctx[2],
+    				(!current || dirty & /*type*/ 1) && { type: /*type*/ ctx[0] }
+    			]));
+
+    			toggle_class(button, "svelte-fp4ngz", true);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(button);
+    			if (default_slot) default_slot.d(detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$2.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$2($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Button", slots, ['default']);
+    	let { type = "button" } = $$props;
+    	const dispatch = createEventDispatcher();
+
+    	function handleClick() {
+    		dispatch("onClick");
+    	}
+
+    	$$self.$$set = $$new_props => {
+    		$$invalidate(2, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+    		if ("type" in $$new_props) $$invalidate(0, type = $$new_props.type);
+    		if ("$$scope" in $$new_props) $$invalidate(3, $$scope = $$new_props.$$scope);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		type,
+    		dispatch,
+    		handleClick
+    	});
+
+    	$$self.$inject_state = $$new_props => {
+    		$$invalidate(2, $$props = assign(assign({}, $$props), $$new_props));
+    		if ("type" in $$props) $$invalidate(0, type = $$new_props.type);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$props = exclude_internal_props($$props);
+    	return [type, handleClick, $$props, $$scope, slots];
+    }
+
+    class Button extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$2, create_fragment$2, safe_not_equal, { type: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Button",
+    			options,
+    			id: create_fragment$2.name
+    		});
+    	}
+
+    	get type() {
+    		throw new Error("<Button>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set type(value) {
+    		throw new Error("<Button>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const mediaStreamErrorMsg = (exception) => {
+      switch (exception) {
+        case 'NotFoundError':
+        case 'DevicesNotFoundError':
+          return 'Target media device is not found or it is unplugged.';
+
+        case 'NotReadableError':
+        case 'TrackStartError':
+          return 'Your camera may be used by another app.';
+
+        case 'NotAllowedError':
+        case 'PermissionDeniedError':
+          return 'Your browser denies capturing video from your camera.';
+
+        case 'OverconstrainedError':
+        case 'ConstraintNotSatisfiedError':
+          return 'Something went wrong with constraints.';
+
+        default:
+          return 'Something went wrong.';
+      }
+    };
+
+    /* src\components\Spinner.svelte generated by Svelte v3.31.0 */
+
+    const file$3 = "src\\components\\Spinner.svelte";
+
+    function create_fragment$3(ctx) {
+    	let div2;
+    	let div0;
+    	let t;
+    	let div1;
+    	let div2_levels = [/*$$props*/ ctx[0], { class: "lds-ripple" }];
+    	let div2_data = {};
+
+    	for (let i = 0; i < div2_levels.length; i += 1) {
+    		div2_data = assign(div2_data, div2_levels[i]);
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div0 = element("div");
+    			t = space();
+    			div1 = element("div");
+    			attr_dev(div0, "class", "svelte-1qnhu31");
+    			add_location(div0, file$3, 39, 2, 713);
+    			attr_dev(div1, "class", "svelte-1qnhu31");
+    			add_location(div1, file$3, 40, 2, 724);
+    			set_attributes(div2, div2_data);
+    			toggle_class(div2, "svelte-1qnhu31", true);
+    			add_location(div2, file$3, 38, 0, 672);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div0);
+    			append_dev(div2, t);
+    			append_dev(div2, div1);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			set_attributes(div2, div2_data = get_spread_update(div2_levels, [dirty & /*$$props*/ 1 && /*$$props*/ ctx[0], { class: "lds-ripple" }]));
+    			toggle_class(div2, "svelte-1qnhu31", true);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$3.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$3($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Spinner", slots, []);
+
+    	$$self.$$set = $$new_props => {
+    		$$invalidate(0, $$props = assign(assign({}, $$props), exclude_internal_props($$new_props)));
+    	};
+
+    	$$self.$inject_state = $$new_props => {
+    		$$invalidate(0, $$props = assign(assign({}, $$props), $$new_props));
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$props = exclude_internal_props($$props);
+    	return [$$props];
+    }
+
+    class Spinner extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$3, create_fragment$3, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Spinner",
+    			options,
+    			id: create_fragment$3.name
+    		});
+    	}
+    }
+
+    const isMobile = () => {
+      return window.innerWidth < 600;
+    };
+
+    const getUserMedia = (constraintsObj = { video: true, audio: true }) => {
+      return navigator.mediaDevices.getUserMedia(constraintsObj);
+    };
+
+    const getDisplayMedia = () => {
+      return navigator.mediaDevices.getDisplayMedia({audio: true, video: true});
+    };
+
+    const getMediaDevices = async () => {
+      const devices = await navigator.mediaDevices.enumerateDevices();
+
+      const cameras = filterByKind(devices, 'videoinput');
+      const microphones = filterByKind(devices, 'audioinput');
+      const speakers = filterByKind(devices, 'audiooutput');
+
+      return [cameras, microphones, speakers];
+    };
+
+    const generateConstraintsObject = (camera, microphone) => {
+      const generateDeviceConfig = (device) => {
+        if (device) {
+          return {
+            deviceId: {
+              exact: device.deviceId,
+            },
+          };
+        }
+
+        return true;
+      };
+
+      return {
+        video: generateDeviceConfig(camera),
+        audio: generateDeviceConfig(microphone),
+      };
+    };
+
+    const filterByKind = (devices, kind) => {
+      return devices.filter((device) => device.kind === kind);
+    };
+
+    const devicesToken = () => '__devices_token';
+    const userToken = () => '__user_token';
+
+    const saveDevices = (o) => {
+      localStorage.setItem(devicesToken(), JSON.stringify(o));
+    };
+
+    const fetchDevices = () => {
+      const rawDeviceData = localStorage.getItem(devicesToken());
+      const devices = JSON.parse(rawDeviceData);
+
+      return devices;
+    };
+
+    const saveUserDetails = (data) => {
+      localStorage.setItem(userToken(), JSON.stringify(data));
+    };
+
+    const fetchUserDetails = () => {
+      const raw = localStorage.getItem(userToken());
+
+      if (raw) {
+        return JSON.parse(raw);
+      }
+
+      return null;
+    };
+
+    /* src\components\Select.svelte generated by Svelte v3.31.0 */
+    const file$4 = "src\\components\\Select.svelte";
+
+    function get_each_context$1(ctx, list, i) {
+    	const child_ctx = ctx.slice();
+    	child_ctx[7] = list[i];
+    	return child_ctx;
+    }
+
+    // (32:0) {#if items.length > 0}
+    function create_if_block(ctx) {
+    	let div;
+    	let h4;
+    	let t0;
+    	let t1;
+    	let select;
+    	let mounted;
+    	let dispose;
+    	let each_value = /*items*/ ctx[0];
+    	validate_each_argument(each_value);
+    	let each_blocks = [];
+
+    	for (let i = 0; i < each_value.length; i += 1) {
+    		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
+    	}
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			h4 = element("h4");
+    			t0 = text(/*title*/ ctx[1]);
+    			t1 = space();
+    			select = element("select");
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].c();
+    			}
+
+    			add_location(h4, file$4, 33, 2, 550);
+    			attr_dev(select, "class", "svelte-n5zgal");
+    			add_location(select, file$4, 35, 2, 613);
+    			attr_dev(div, "class", "svelte-n5zgal");
+    			add_location(div, file$4, 32, 1, 541);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, h4);
+    			append_dev(h4, t0);
+    			append_dev(div, t1);
+    			append_dev(div, select);
+
+    			for (let i = 0; i < each_blocks.length; i += 1) {
+    				each_blocks[i].m(select, null);
+    			}
+
+    			if (!mounted) {
+    				dispose = listen_dev(select, "change", /*handleChange*/ ctx[5], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*title*/ 2) set_data_dev(t0, /*title*/ ctx[1]);
+
+    			if (dirty & /*items, key, defaultValue, value*/ 29) {
+    				each_value = /*items*/ ctx[0];
+    				validate_each_argument(each_value);
+    				let i;
+
+    				for (i = 0; i < each_value.length; i += 1) {
+    					const child_ctx = get_each_context$1(ctx, each_value, i);
+
+    					if (each_blocks[i]) {
+    						each_blocks[i].p(child_ctx, dirty);
+    					} else {
+    						each_blocks[i] = create_each_block$1(child_ctx);
+    						each_blocks[i].c();
+    						each_blocks[i].m(select, null);
+    					}
+    				}
+
+    				for (; i < each_blocks.length; i += 1) {
+    					each_blocks[i].d(1);
+    				}
+
+    				each_blocks.length = each_value.length;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_each(each_blocks, detaching);
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block.name,
+    		type: "if",
+    		source: "(32:0) {#if items.length > 0}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (37:3) {#each items as item}
+    function create_each_block$1(ctx) {
+    	let option;
+    	let t_value = /*item*/ ctx[7][/*value*/ ctx[3]] + "";
+    	let t;
+    	let option_selected_value;
+    	let option_value_value;
+
+    	const block = {
+    		c: function create() {
+    			option = element("option");
+    			t = text(t_value);
+    			option.selected = option_selected_value = /*item*/ ctx[7][/*key*/ ctx[2]] === /*defaultValue*/ ctx[4];
+    			option.__value = option_value_value = /*item*/ ctx[7][/*key*/ ctx[2]];
+    			option.value = option.__value;
+    			add_location(option, file$4, 37, 4, 678);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, option, anchor);
+    			append_dev(option, t);
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*items, value*/ 9 && t_value !== (t_value = /*item*/ ctx[7][/*value*/ ctx[3]] + "")) set_data_dev(t, t_value);
+
+    			if (dirty & /*items, key, defaultValue*/ 21 && option_selected_value !== (option_selected_value = /*item*/ ctx[7][/*key*/ ctx[2]] === /*defaultValue*/ ctx[4])) {
+    				prop_dev(option, "selected", option_selected_value);
+    			}
+
+    			if (dirty & /*items, key*/ 5 && option_value_value !== (option_value_value = /*item*/ ctx[7][/*key*/ ctx[2]])) {
+    				prop_dev(option, "__value", option_value_value);
+    				option.value = option.__value;
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(option);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_each_block$1.name,
+    		type: "each",
+    		source: "(37:3) {#each items as item}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$4(ctx) {
+    	let if_block_anchor;
+    	let if_block = /*items*/ ctx[0].length > 0 && create_if_block(ctx);
+
+    	const block = {
+    		c: function create() {
+    			if (if_block) if_block.c();
+    			if_block_anchor = empty();
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			if (if_block) if_block.m(target, anchor);
+    			insert_dev(target, if_block_anchor, anchor);
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (/*items*/ ctx[0].length > 0) {
+    				if (if_block) {
+    					if_block.p(ctx, dirty);
+    				} else {
+    					if_block = create_if_block(ctx);
+    					if_block.c();
+    					if_block.m(if_block_anchor.parentNode, if_block_anchor);
+    				}
+    			} else if (if_block) {
+    				if_block.d(1);
+    				if_block = null;
+    			}
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (if_block) if_block.d(detaching);
+    			if (detaching) detach_dev(if_block_anchor);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$4.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$4($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Select", slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { items = [] } = $$props;
+    	let { title = "<label of select>" } = $$props;
+    	let { key } = $$props;
+    	let { value } = $$props;
+    	let { defaultValue } = $$props;
+
+    	function handleChange(e) {
+    		dispatch("onSelect", e.target.value);
+    	}
+
+    	const writable_props = ["items", "title", "key", "value", "defaultValue"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Select> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("items" in $$props) $$invalidate(0, items = $$props.items);
+    		if ("title" in $$props) $$invalidate(1, title = $$props.title);
+    		if ("key" in $$props) $$invalidate(2, key = $$props.key);
+    		if ("value" in $$props) $$invalidate(3, value = $$props.value);
+    		if ("defaultValue" in $$props) $$invalidate(4, defaultValue = $$props.defaultValue);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		items,
+    		title,
+    		key,
+    		value,
+    		defaultValue,
+    		handleChange
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("items" in $$props) $$invalidate(0, items = $$props.items);
+    		if ("title" in $$props) $$invalidate(1, title = $$props.title);
+    		if ("key" in $$props) $$invalidate(2, key = $$props.key);
+    		if ("value" in $$props) $$invalidate(3, value = $$props.value);
+    		if ("defaultValue" in $$props) $$invalidate(4, defaultValue = $$props.defaultValue);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [items, title, key, value, defaultValue, handleChange];
+    }
+
+    class Select extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(this, options, instance$4, create_fragment$4, safe_not_equal, {
+    			items: 0,
+    			title: 1,
+    			key: 2,
+    			value: 3,
+    			defaultValue: 4
+    		});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Select",
+    			options,
+    			id: create_fragment$4.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*key*/ ctx[2] === undefined && !("key" in props)) {
+    			console.warn("<Select> was created without expected prop 'key'");
+    		}
+
+    		if (/*value*/ ctx[3] === undefined && !("value" in props)) {
+    			console.warn("<Select> was created without expected prop 'value'");
+    		}
+
+    		if (/*defaultValue*/ ctx[4] === undefined && !("defaultValue" in props)) {
+    			console.warn("<Select> was created without expected prop 'defaultValue'");
+    		}
+    	}
+
+    	get items() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set items(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get title() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set title(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get key() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set key(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get value() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set value(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get defaultValue() {
+    		throw new Error("<Select>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set defaultValue(value) {
+    		throw new Error("<Select>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\components\DeviceSettingsModal.svelte generated by Svelte v3.31.0 */
+    const file$5 = "src\\components\\DeviceSettingsModal.svelte";
+
+    // (261:4) {#if !stream}
+    function create_if_block_1(ctx) {
+    	let div;
+    	let spinner;
+    	let current;
+    	spinner = new Spinner({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			create_component(spinner.$$.fragment);
+    			attr_dev(div, "class", "spinner-wrap svelte-14miyum");
+    			add_location(div, file$5, 261, 6, 7303);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			mount_component(spinner, div, null);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(spinner.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(spinner.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(spinner);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1.name,
+    		type: "if",
+    		source: "(261:4) {#if !stream}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (285:4) {#if !isMobile()}
+    function create_if_block$1(ctx) {
+    	let select;
+    	let current;
+
+    	select = new Select({
+    			props: {
+    				defaultValue: /*selectedSpeaker*/ ctx[6]?.deviceId,
+    				key: "deviceId",
+    				value: "label",
+    				title: "Default speaker",
+    				items: distinct(/*speakers*/ ctx[3])
+    			},
+    			$$inline: true
+    		});
+
+    	select.$on("onSelect", /*onSpeakerSelect*/ ctx[9]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(select.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(select, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const select_changes = {};
+    			if (dirty & /*selectedSpeaker*/ 64) select_changes.defaultValue = /*selectedSpeaker*/ ctx[6]?.deviceId;
+    			if (dirty & /*speakers*/ 8) select_changes.items = distinct(/*speakers*/ ctx[3]);
+    			select.$set(select_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(select.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(select.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(select, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$1.name,
+    		type: "if",
+    		source: "(285:4) {#if !isMobile()}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (295:4) <Button on:onClick={onSaveButtonClick}>
+    function create_default_slot$1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Save");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$1.name,
+    		type: "slot",
+    		source: "(295:4) <Button on:onClick={onSaveButtonClick}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$5(ctx) {
+    	let div2;
+    	let div1;
+    	let t0;
+    	let div0;
+    	let video_1;
+    	let t1;
+    	let select0;
+    	let t2;
+    	let select1;
+    	let t3;
+    	let show_if = !isMobile();
+    	let t4;
+    	let button;
+    	let current;
+    	let if_block0 = !/*stream*/ ctx[0] && create_if_block_1(ctx);
+
+    	select0 = new Select({
+    			props: {
+    				defaultValue: /*selectedCamera*/ ctx[4]?.deviceId,
+    				key: "deviceId",
+    				value: "label",
+    				title: "Default camera",
+    				items: distinct(/*cameras*/ ctx[1])
+    			},
+    			$$inline: true
+    		});
+
+    	select0.$on("onSelect", /*onCameraSelect*/ ctx[7]);
+
+    	select1 = new Select({
+    			props: {
+    				defaultValue: /*selectedMicrophone*/ ctx[5]?.deviceId,
+    				key: "deviceId",
+    				value: "label",
+    				title: "Default microphone",
+    				items: distinct(/*microphones*/ ctx[2])
+    			},
+    			$$inline: true
+    		});
+
+    	select1.$on("onSelect", /*onMicrophoneSelect*/ ctx[8]);
+    	let if_block1 = show_if && create_if_block$1(ctx);
+
+    	button = new Button({
+    			props: {
+    				$$slots: { default: [create_default_slot$1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	button.$on("onClick", /*onSaveButtonClick*/ ctx[10]);
+
+    	const block = {
+    		c: function create() {
+    			div2 = element("div");
+    			div1 = element("div");
+    			if (if_block0) if_block0.c();
+    			t0 = space();
+    			div0 = element("div");
+    			video_1 = element("video");
+    			t1 = space();
+    			create_component(select0.$$.fragment);
+    			t2 = space();
+    			create_component(select1.$$.fragment);
+    			t3 = space();
+    			if (if_block1) if_block1.c();
+    			t4 = space();
+    			create_component(button.$$.fragment);
+    			video_1.playsInline = true;
+    			video_1.autoplay = true;
+    			video_1.muted = true;
+    			attr_dev(video_1, "id", "video");
+    			attr_dev(video_1, "class", "svelte-14miyum");
+    			add_location(video_1, file$5, 266, 33, 7412);
+    			attr_dev(div0, "class", "video-container svelte-14miyum");
+    			add_location(div0, file$5, 266, 4, 7383);
+    			attr_dev(div1, "class", "main-modal svelte-14miyum");
+    			add_location(div1, file$5, 259, 2, 7252);
+    			attr_dev(div2, "class", "main-modal-wrap svelte-14miyum");
+    			add_location(div2, file$5, 258, 0, 7219);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div2, anchor);
+    			append_dev(div2, div1);
+    			if (if_block0) if_block0.m(div1, null);
+    			append_dev(div1, t0);
+    			append_dev(div1, div0);
+    			append_dev(div0, video_1);
+    			append_dev(div1, t1);
+    			mount_component(select0, div1, null);
+    			append_dev(div1, t2);
+    			mount_component(select1, div1, null);
+    			append_dev(div1, t3);
+    			if (if_block1) if_block1.m(div1, null);
+    			append_dev(div1, t4);
+    			mount_component(button, div1, null);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (!/*stream*/ ctx[0]) {
+    				if (if_block0) {
+    					if (dirty & /*stream*/ 1) {
+    						transition_in(if_block0, 1);
+    					}
+    				} else {
+    					if_block0 = create_if_block_1(ctx);
+    					if_block0.c();
+    					transition_in(if_block0, 1);
+    					if_block0.m(div1, t0);
+    				}
+    			} else if (if_block0) {
+    				group_outros();
+
+    				transition_out(if_block0, 1, 1, () => {
+    					if_block0 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			const select0_changes = {};
+    			if (dirty & /*selectedCamera*/ 16) select0_changes.defaultValue = /*selectedCamera*/ ctx[4]?.deviceId;
+    			if (dirty & /*cameras*/ 2) select0_changes.items = distinct(/*cameras*/ ctx[1]);
+    			select0.$set(select0_changes);
+    			const select1_changes = {};
+    			if (dirty & /*selectedMicrophone*/ 32) select1_changes.defaultValue = /*selectedMicrophone*/ ctx[5]?.deviceId;
+    			if (dirty & /*microphones*/ 4) select1_changes.items = distinct(/*microphones*/ ctx[2]);
+    			select1.$set(select1_changes);
+    			if (show_if) if_block1.p(ctx, dirty);
+    			const button_changes = {};
+
+    			if (dirty & /*$$scope*/ 536870912) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block0);
+    			transition_in(select0.$$.fragment, local);
+    			transition_in(select1.$$.fragment, local);
+    			transition_in(if_block1);
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block0);
+    			transition_out(select0.$$.fragment, local);
+    			transition_out(select1.$$.fragment, local);
+    			transition_out(if_block1);
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div2);
+    			if (if_block0) if_block0.d();
+    			destroy_component(select0);
+    			destroy_component(select1);
+    			if (if_block1) if_block1.d();
+    			destroy_component(button);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$5.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function distinct(devices) {
+    	return devices.filter(device => !["default", "communications"].includes(device.deviceId));
+    }
+
+    function instance$5($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("DeviceSettingsModal", slots, []);
+    	let stream;
+    	let cameras = [], microphones = [], speakers = [];
+    	let selectedCamera, selectedMicrophone, selectedSpeaker;
+
+    	onMount(async () => {
+    		try {
+    			const alreadySelectedDevices = fetchDevices();
+
+    			if (alreadySelectedDevices) {
+    				$$invalidate(4, selectedCamera = alreadySelectedDevices.selectedCamera);
+    				$$invalidate(5, selectedMicrophone = alreadySelectedDevices.selectedMicrophone);
+    				$$invalidate(6, selectedSpeaker = alreadySelectedDevices.selectedSpeaker);
+    			}
+
+    			_subscribeOnEscapeClick();
+    			_subscribeOnOutsideClick();
+    			await _displayUserVideo();
+    			await _initializeDeviceLists();
+    			_initializeSelectedDevices();
+    		} catch(er) {
+    			// this could happen if camera or mic (previously selected from modal) was disconnected
+    			// app tried to fetch stream from device which is unplugged
+    			if (["OverconstrainedError", "ConstraintNotSatisfiedError"].includes(er.name)) {
+    				// then try to fetch stream from default camera and mic
+    				_onOverconstrainedErrorHandler();
+
+    				criticalErrorSubject.update(_ => "Unable to fetch stream from previously selected devices. They might be unplugged");
+    				return;
+    			}
+
+    			const msg = mediaStreamErrorMsg(er.name);
+    			criticalErrorSubject.update(_ => msg);
+    			deviceSelectorPopupSubject.update(_ => false);
+    		}
+    	});
+
+    	const _onOverconstrainedErrorHandler = async () => {
+    		$$invalidate(4, selectedCamera = null);
+    		$$invalidate(5, selectedMicrophone = null);
+    		await _displayUserVideo();
+    		await _initializeDeviceLists();
+    		_initializeSelectedDevices();
+
+    		saveDevices({
+    			selectedCamera,
+    			selectedMicrophone,
+    			selectedSpeaker
+    		});
+    	};
+
+    	const _escapeButtonListener = e => {
+    		if (e.key === "Escape") {
+    			deviceSelectorPopupSubject.update(_ => false);
+    		}
+    	};
+
+    	const _outsideClickListener = e => {
+    		const modal = document.querySelector(".main-modal-wrap");
+
+    		if (e.target.contains(modal)) {
+    			deviceSelectorPopupSubject.update(_ => false);
+    		}
+    	};
+
+    	const _subscribeOnEscapeClick = () => {
+    		window.addEventListener("keydown", _escapeButtonListener);
+    	};
+
+    	const _unsubscribeOnEscapeClick = () => {
+    		window.removeEventListener("keydown", _escapeButtonListener);
+    	};
+
+    	const _subscribeOnOutsideClick = () => {
+    		window.addEventListener("click", _outsideClickListener);
+    	};
+
+    	const _unsubscribeOnOutsideClick = () => {
+    		window.removeEventListener("click", _outsideClickListener);
+    	};
+
+    	const _displayUserVideo = async () => {
+    		const videoEl = document.getElementById("video");
+    		const constraints = generateConstraintsObject(selectedCamera, selectedMicrophone);
+    		$$invalidate(0, stream = await getUserMedia(constraints));
+    		videoEl.srcObject = stream;
+    	};
+
+    	const _initializeDeviceLists = async () => {
+    		const [_cameras, _microphones, _speakers] = await getMediaDevices();
+    		$$invalidate(1, cameras = _cameras);
+    		$$invalidate(2, microphones = _microphones);
+    		$$invalidate(3, speakers = _speakers);
+    	};
+
+    	const _initializeSelectedDevices = () => {
+    		$$invalidate(4, selectedCamera = _getDefaultCamera());
+    		$$invalidate(5, selectedMicrophone = _getDefaultMicrophone());
+    		$$invalidate(6, selectedSpeaker = _getDefaultSpeaker(speakers));
+    	};
+
+    	const _getDefaultCamera = () => {
+    		return _getDefaultDevice(cameras);
+    	};
+
+    	const _getDefaultMicrophone = () => {
+    		return _getDefaultDevice(microphones);
+    	};
+
+    	const _getDefaultSpeaker = devices => {
+    		const alreadySelectedDevices = fetchDevices();
+
+    		if (alreadySelectedDevices) {
+    			return selectedSpeaker;
+    		}
+
+    		const [speaker] = distinct(devices);
+    		return speaker || devices[0];
+    	};
+
+    	const _getDefaultDevice = devices => {
+    		const defaultSystemLabels = _getDefaultDevicesLabels();
+    		const groupId = devices.find(device => defaultSystemLabels.includes(device.label))?.groupId;
+    		const selectedDevice = distinct(devices).find(d => d.groupId === groupId);
+    		return selectedDevice;
+    	};
+
+    	const _getDefaultDevicesLabels = () => {
+    		return stream.getTracks().map(track => track.label);
+    	};
+
+    	const _findDeviceById = (devices, id) => {
+    		const [device] = _filterDevicesBy(devices, "deviceId", id);
+    		return device;
+    	};
+
+    	const _filterDevicesBy = (devices, prop, value) => {
+    		return devices.filter(device => device[prop] === value);
+    	};
+
+    	const _stopStreamTracks = () => {
+    		if (stream) {
+    			stream.getTracks().map(track => track.stop());
+    		}
+
+    		$$invalidate(0, stream = null);
+    		video.srcObject = null;
+    	};
+
+    	async function onCameraSelect({ detail }) {
+    		try {
+    			const cameraId = detail;
+    			$$invalidate(4, selectedCamera = _findDeviceById(distinct(cameras), cameraId));
+    			_stopStreamTracks();
+    			$$invalidate(0, stream = await getUserMedia(generateConstraintsObject(selectedCamera, selectedMicrophone)));
+    			video.srcObject = stream;
+    		} catch(er) {
+    			const msg = mediaStreamErrorMsg(er.name);
+    			criticalErrorSubject.update(_ => msg);
+    			deviceSelectorPopupSubject.update(_ => false);
+    		}
+    	}
+
+    	function onMicrophoneSelect({ detail }) {
+    		const microphoneId = detail;
+    		$$invalidate(5, selectedMicrophone = _findDeviceById(distinct(microphones), microphoneId));
+    	}
+
+    	function onSpeakerSelect({ detail }) {
+    		const speakerId = detail;
+    		$$invalidate(6, selectedSpeaker = _findDeviceById(distinct(speakers), speakerId));
+    	}
+
+    	function onSaveButtonClick() {
+    		saveDevices({
+    			selectedCamera,
+    			selectedMicrophone,
+    			selectedSpeaker
+    		});
+
+    		deviceSelectorPopupSubject.update(_ => false);
+    	}
+
+    	onDestroy(() => {
+    		_stopStreamTracks();
+    		_unsubscribeOnEscapeClick();
+    		_unsubscribeOnOutsideClick();
+    	});
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<DeviceSettingsModal> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$capture_state = () => ({
+    		mediaStreamErrorMsg,
+    		Spinner,
+    		isMobile,
+    		generateConstraintsObject,
+    		deviceSelectorPopupSubject,
+    		criticalErrorSubject,
+    		fetchDevices,
+    		saveDevices,
+    		Button,
+    		getUserMedia,
+    		getMediaDevices,
+    		Select,
+    		onDestroy,
+    		onMount,
+    		stream,
+    		cameras,
+    		microphones,
+    		speakers,
+    		selectedCamera,
+    		selectedMicrophone,
+    		selectedSpeaker,
+    		_onOverconstrainedErrorHandler,
+    		_escapeButtonListener,
+    		_outsideClickListener,
+    		_subscribeOnEscapeClick,
+    		_unsubscribeOnEscapeClick,
+    		_subscribeOnOutsideClick,
+    		_unsubscribeOnOutsideClick,
+    		_displayUserVideo,
+    		_initializeDeviceLists,
+    		_initializeSelectedDevices,
+    		_getDefaultCamera,
+    		_getDefaultMicrophone,
+    		_getDefaultSpeaker,
+    		_getDefaultDevice,
+    		_getDefaultDevicesLabels,
+    		_findDeviceById,
+    		_filterDevicesBy,
+    		_stopStreamTracks,
+    		distinct,
+    		onCameraSelect,
+    		onMicrophoneSelect,
+    		onSpeakerSelect,
+    		onSaveButtonClick
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("stream" in $$props) $$invalidate(0, stream = $$props.stream);
+    		if ("cameras" in $$props) $$invalidate(1, cameras = $$props.cameras);
+    		if ("microphones" in $$props) $$invalidate(2, microphones = $$props.microphones);
+    		if ("speakers" in $$props) $$invalidate(3, speakers = $$props.speakers);
+    		if ("selectedCamera" in $$props) $$invalidate(4, selectedCamera = $$props.selectedCamera);
+    		if ("selectedMicrophone" in $$props) $$invalidate(5, selectedMicrophone = $$props.selectedMicrophone);
+    		if ("selectedSpeaker" in $$props) $$invalidate(6, selectedSpeaker = $$props.selectedSpeaker);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [
+    		stream,
+    		cameras,
+    		microphones,
+    		speakers,
+    		selectedCamera,
+    		selectedMicrophone,
+    		selectedSpeaker,
+    		onCameraSelect,
+    		onMicrophoneSelect,
+    		onSpeakerSelect,
+    		onSaveButtonClick
+    	];
+    }
+
+    class DeviceSettingsModal extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$5, create_fragment$5, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "DeviceSettingsModal",
+    			options,
+    			id: create_fragment$5.name
+    		});
+    	}
+    }
+
+    const socket = io('https://calling-daniel-application.herokuapp.com/');
+
+    const on = (event, fn) => {
+      socket.on(event, fn);
+    };
+
+    const off = (event) => {
+      socket.off(event);
+    };
+
+    const emit = (event, data) => {
+      socket.emit(event, data);
+    };
+
+    /* src\components\Emoji.svelte generated by Svelte v3.31.0 */
+
+    const file$6 = "src\\components\\Emoji.svelte";
+
+    function create_fragment$6(ctx) {
+    	let span;
+    	let current;
+    	const default_slot_template = /*#slots*/ ctx[1].default;
+    	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[0], null);
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			if (default_slot) default_slot.c();
+    			attr_dev(span, "role", "img");
+    			add_location(span, file$6, 3, 0, 23);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+
+    			if (default_slot) {
+    				default_slot.m(span, null);
+    			}
+
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (default_slot) {
+    				if (default_slot.p && dirty & /*$$scope*/ 1) {
+    					update_slot(default_slot, default_slot_template, ctx, /*$$scope*/ ctx[0], dirty, null, null);
+    				}
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(default_slot, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(default_slot, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			if (default_slot) default_slot.d(detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$6.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$6($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Emoji", slots, ['default']);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Emoji> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("$$scope" in $$props) $$invalidate(0, $$scope = $$props.$$scope);
+    	};
+
+    	return [$$scope, slots];
+    }
+
+    class Emoji extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$6, create_fragment$6, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Emoji",
+    			options,
+    			id: create_fragment$6.name
+    		});
+    	}
+    }
+
+    /* src\components\Splitter.svelte generated by Svelte v3.31.0 */
+
+    const file$7 = "src\\components\\Splitter.svelte";
+
+    function create_fragment$7(ctx) {
+    	let div;
+    	let span;
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			span = element("span");
+    			span.textContent = "☞☚";
+    			attr_dev(span, "class", "svelte-5vsjiz");
+    			add_location(span, file$7, 29, 19, 512);
+    			attr_dev(div, "class", "split svelte-5vsjiz");
+    			add_location(div, file$7, 29, 0, 493);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, span);
+    		},
+    		p: noop,
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$7.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$7($$self, $$props) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Splitter", slots, []);
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<Splitter> was created with unknown prop '${key}'`);
+    	});
+
+    	return [];
+    }
+
+    class Splitter extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$7, create_fragment$7, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Splitter",
+    			options,
+    			id: create_fragment$7.name
+    		});
+    	}
+    }
+
+    /* src\components\IncomingCall.svelte generated by Svelte v3.31.0 */
+    const file$8 = "src\\components\\IncomingCall.svelte";
+
+    function create_fragment$8(ctx) {
+    	let div3;
+    	let div2;
+    	let h3;
+    	let b;
+    	let t0;
+    	let t1;
+    	let t2;
+    	let div0;
+    	let button0;
+    	let i0;
+    	let t3;
+    	let div1;
+    	let button1;
+    	let i1;
+    	let mounted;
+    	let dispose;
+
+    	const block = {
+    		c: function create() {
+    			div3 = element("div");
+    			div2 = element("div");
+    			h3 = element("h3");
+    			b = element("b");
+    			t0 = text(/*username*/ ctx[0]);
+    			t1 = text(" is calling you");
+    			t2 = space();
+    			div0 = element("div");
+    			button0 = element("button");
+    			i0 = element("i");
+    			t3 = space();
+    			div1 = element("div");
+    			button1 = element("button");
+    			i1 = element("i");
+    			add_location(b, file$8, 136, 31, 2490);
+    			attr_dev(h3, "class", "username-label svelte-5nlicx");
+    			add_location(h3, file$8, 136, 4, 2463);
+    			attr_dev(i0, "class", "fas fa-phone-volume");
+    			add_location(i0, file$8, 138, 43, 2613);
+    			attr_dev(button0, "class", "svelte-5nlicx");
+    			add_location(button0, file$8, 138, 6, 2576);
+    			attr_dev(div0, "class", "accept-call-container svelte-5nlicx");
+    			add_location(div0, file$8, 137, 4, 2533);
+    			attr_dev(i1, "class", "fas fa-phone");
+    			add_location(i1, file$8, 140, 71, 2741);
+    			attr_dev(button1, "class", "svelte-5nlicx");
+    			add_location(button1, file$8, 140, 37, 2707);
+    			attr_dev(div1, "class", "drop-call-container svelte-5nlicx");
+    			add_location(div1, file$8, 140, 4, 2674);
+    			attr_dev(div2, "class", "incoming svelte-5nlicx");
+    			add_location(div2, file$8, 135, 2, 2435);
+    			attr_dev(div3, "class", "incoming-wrap svelte-5nlicx");
+    			add_location(div3, file$8, 134, 0, 2404);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div3, anchor);
+    			append_dev(div3, div2);
+    			append_dev(div2, h3);
+    			append_dev(h3, b);
+    			append_dev(b, t0);
+    			append_dev(h3, t1);
+    			append_dev(div2, t2);
+    			append_dev(div2, div0);
+    			append_dev(div0, button0);
+    			append_dev(button0, i0);
+    			append_dev(div2, t3);
+    			append_dev(div2, div1);
+    			append_dev(div1, button1);
+    			append_dev(button1, i1);
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*handleAcceptCall*/ ctx[1], false, false, false),
+    					listen_dev(button1, "click", /*handleDropCall*/ ctx[2], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, [dirty]) {
+    			if (dirty & /*username*/ 1) set_data_dev(t0, /*username*/ ctx[0]);
+    		},
+    		i: noop,
+    		o: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div3);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$8.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function instance$8($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("IncomingCall", slots, []);
+    	const dispatch = createEventDispatcher();
+    	let { username } = $$props;
+
+    	function handleAcceptCall() {
+    		dispatch("onAccept");
+    	}
+
+    	function handleDropCall() {
+    		dispatch("onDrop");
+    	}
+
+    	const writable_props = ["username"];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<IncomingCall> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("username" in $$props) $$invalidate(0, username = $$props.username);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		createEventDispatcher,
+    		dispatch,
+    		username,
+    		handleAcceptCall,
+    		handleDropCall
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("username" in $$props) $$invalidate(0, username = $$props.username);
+    	};
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	return [username, handleAcceptCall, handleDropCall];
+    }
+
+    class IncomingCall extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$8, create_fragment$8, safe_not_equal, { username: 0 });
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "IncomingCall",
+    			options,
+    			id: create_fragment$8.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*username*/ ctx[0] === undefined && !("username" in props)) {
+    			console.warn("<IncomingCall> was created without expected prop 'username'");
+    		}
+    	}
+
+    	get username() {
+    		throw new Error("<IncomingCall>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set username(value) {
+    		throw new Error("<IncomingCall>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    const createLogger = (...fns) => {
+      return (initial) => fns.reduce((param, func) => func(param), initial);
+    };
+
+    const rtcLog = createLogger((x) => {
+      console.log(`%c👉👈 (webrtc) ${x}`, `color: #2dd713; font-weight: bold; font-size: 0.9rem; `);
+      return x;
+    });
+
+    const rtcError = createLogger((x) => {
+      console.log(`%c❌❌ (webrtc) ${x}`, `color: tomato; font-weight: bold; font-size: 0.9rem; `);
+      return x;
+    });
+
+    const iceServers = [
+      { urls: 'stun:stun.voipstunt.com' },
+      {
+        urls: 'turn:numb.viagenie.ca',
+        credential: 'muazkh',
+        username: 'webrtc@live.com',
+      },
+      {
+        urls: 'turn:192.158.29.39:3478?transport=udp',
+        credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+        username: '28224511:1379330808',
+      },
+    ];
+
+    const streamTypeToSocketEvents = (mode) => {
+      switch (mode) {
+        case 'video-call':
+          return {
+            offer: 'video-offer',
+            answer: 'video-answer',
+            iceCandidate: 'ice-candidate',
+          };
+
+        case 'screenshare':
+          return {
+            offer: 'video-screen-sharing-offer',
+            answer: 'video-screen-sharing-answer',
+            iceCandidate: 'ice-screen-sharing-candidate',
+          };
+        
+        default: return {};
+      }
+    };
+
+    const stopTracks = (stream) => {
+      if (!stream) {
+        return;
+      }
+
+      stream.getTracks().map((track) => track.stop());
+      stream = null;
+    };
+
+    const attachStreamToVideoElement = (id, stream) => {
+      const video = document.getElementById(id);
+
+      if (video && stream) {
+        video.srcObject = stream;
+      }
+    };
+
+    const createPeer = () => new RTCPeerConnection({ iceServers: iceServers });
+
+    const detachStreamFromVideoElement = (id) => {
+      const video = document.getElementById(id);
+
+      video.srcObject = null;
+      video.removeAttribute('srcObject');
+    };
+
+    const addTracksToPeer = (peer, stream) => {
+      stream.getTracks().forEach((track) => {
+        peer.addTrack(track, stream);
+      });
+    };
+
+    const replaceTrackForPeer = (peer, stream, kind) => {
+      const track = stream.getTracks().find((t) => t.kind === kind);
+      const sender = peer.getSenders().find((s) => s.track.kind === kind);
+
+      sender.replaceTrack(track);
+
+      return track;
+    };
+
+    const closePeerConnection = (peer) => {
+      if (!peer) {
+        return;
+      }
+
+      peer.ontrack = null;
+      peer.onremovetrack = null;
+      peer.onremovestream = null;
+      peer.onicecandidate = null;
+      peer.oniceconnectionstatechange = null;
+      peer.onsignalingstatechange = null;
+      peer.onicegatheringstatechange = null;
+      peer.onnegotiationneeded = null;
+
+      peer.close();
+      peer = null;
+    };
+
+    /* src\components\Call.svelte generated by Svelte v3.31.0 */
+
+    const { Object: Object_1, console: console_1 } = globals;
+
+    const file$9 = "src\\components\\Call.svelte";
+
+    // (319:6) {#if !yourVideoStream}
+    function create_if_block$2(ctx) {
+    	let spinner;
+    	let current;
+
+    	spinner = new Spinner({
+    			props: { style: "position: absolute" },
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(spinner.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(spinner, target, anchor);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(spinner.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(spinner.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(spinner, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$2.name,
+    		type: "if",
+    		source: "(319:6) {#if !yourVideoStream}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$9(ctx) {
+    	let div5;
+    	let div4;
+    	let div0;
+    	let video0;
+    	let video0_muted_value;
+    	let t0;
+    	let video1;
+    	let t1;
+    	let t2;
+    	let div1;
+    	let video2;
+    	let t3;
+    	let div3;
+    	let div2;
+    	let button0;
+    	let span0;
+    	let t4;
+    	let t5;
+    	let i0;
+    	let t6;
+    	let button1;
+    	let span1;
+    	let t8;
+    	let i1;
+    	let t9;
+    	let button2;
+    	let span2;
+    	let t10;
+    	let t11;
+    	let i2;
+    	let t12;
+    	let button3;
+    	let span3;
+    	let t13;
+    	let t14;
+    	let i3;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	let if_block = !/*yourVideoStream*/ ctx[3] && create_if_block$2(ctx);
+
+    	const block = {
+    		c: function create() {
+    			div5 = element("div");
+    			div4 = element("div");
+    			div0 = element("div");
+    			video0 = element("video");
+    			t0 = space();
+    			video1 = element("video");
+    			t1 = space();
+    			if (if_block) if_block.c();
+    			t2 = space();
+    			div1 = element("div");
+    			video2 = element("video");
+    			t3 = space();
+    			div3 = element("div");
+    			div2 = element("div");
+    			button0 = element("button");
+    			span0 = element("span");
+    			t4 = text(/*videoTooltip*/ ctx[4]);
+    			t5 = space();
+    			i0 = element("i");
+    			t6 = space();
+    			button1 = element("button");
+    			span1 = element("span");
+    			span1.textContent = "End Call";
+    			t8 = space();
+    			i1 = element("i");
+    			t9 = space();
+    			button2 = element("button");
+    			span2 = element("span");
+    			t10 = text(/*audioTooltip*/ ctx[5]);
+    			t11 = space();
+    			i2 = element("i");
+    			t12 = space();
+    			button3 = element("button");
+    			span3 = element("span");
+    			t13 = text(/*shareTooltip*/ ctx[6]);
+    			t14 = space();
+    			i3 = element("i");
+    			video0.playsInline = true;
+    			attr_dev(video0, "id", "yourVideo");
+    			video0.autoplay = true;
+    			video0.muted = video0_muted_value = true;
+    			attr_dev(video0, "class", "svelte-cm9yfc");
+    			toggle_class(video0, "shadow", /*yourVideoStream*/ ctx[3]);
+    			add_location(video0, file$9, 316, 6, 9707);
+    			video1.playsInline = true;
+    			attr_dev(video1, "id", "participantSecondaryVideo");
+    			video1.autoplay = true;
+    			attr_dev(video1, "class", "svelte-cm9yfc");
+    			add_location(video1, file$9, 317, 6, 9805);
+    			attr_dev(div0, "class", "yourVideo-container svelte-cm9yfc");
+    			toggle_class(div0, "hidden", /*videoOff*/ ctx[2]);
+    			add_location(div0, file$9, 315, 4, 9642);
+    			video2.playsInline = true;
+    			attr_dev(video2, "id", "participantPrimaryVideo");
+    			video2.autoplay = true;
+    			attr_dev(video2, "class", "svelte-cm9yfc");
+    			add_location(video2, file$9, 323, 45, 10019);
+    			attr_dev(div1, "class", "participant-video-container svelte-cm9yfc");
+    			add_location(div1, file$9, 323, 4, 9978);
+    			attr_dev(span0, "class", "tooltip svelte-cm9yfc");
+    			add_location(span0, file$9, 328, 10, 10274);
+    			attr_dev(i0, "class", "fas fa-video");
+    			add_location(i0, file$9, 329, 10, 10329);
+    			attr_dev(button0, "class", "action-button action-button__video svelte-cm9yfc");
+    			toggle_class(button0, "mute", /*videoOff*/ ctx[2]);
+    			add_location(button0, file$9, 327, 8, 10164);
+    			attr_dev(span1, "class", "tooltip svelte-cm9yfc");
+    			add_location(span1, file$9, 332, 10, 10469);
+    			attr_dev(i1, "class", "fas fa-phone svelte-cm9yfc");
+    			add_location(i1, file$9, 333, 10, 10518);
+    			attr_dev(button1, "class", "action-button action-button__end-call svelte-cm9yfc");
+    			add_location(button1, file$9, 331, 8, 10384);
+    			attr_dev(span2, "class", "tooltip svelte-cm9yfc");
+    			add_location(span2, file$9, 336, 10, 10688);
+    			attr_dev(i2, "class", "fas fa-microphone-alt");
+    			add_location(i2, file$9, 337, 10, 10743);
+    			attr_dev(button2, "class", "action-button action-button__audio svelte-cm9yfc");
+    			toggle_class(button2, "mute", /*audioOff*/ ctx[1]);
+    			add_location(button2, file$9, 335, 8, 10573);
+    			attr_dev(span3, "class", "tooltip svelte-cm9yfc");
+    			add_location(span3, file$9, 344, 10, 10974);
+    			attr_dev(i3, "class", "fas fa-desktop");
+    			add_location(i3, file$9, 345, 10, 11029);
+    			attr_dev(button3, "class", "action-button action-button__sharing svelte-cm9yfc");
+    			toggle_class(button3, "sharing", /*youAreSharingScreen*/ ctx[0]);
+    			add_location(button3, file$9, 339, 8, 10807);
+    			attr_dev(div2, "class", "call-menu-actions svelte-cm9yfc");
+    			add_location(div2, file$9, 326, 6, 10123);
+    			attr_dev(div3, "class", "call-menu svelte-cm9yfc");
+    			add_location(div3, file$9, 325, 4, 10092);
+    			attr_dev(div4, "class", "incoming svelte-cm9yfc");
+    			add_location(div4, file$9, 314, 2, 9614);
+    			attr_dev(div5, "class", "incoming-wrap svelte-cm9yfc");
+    			add_location(div5, file$9, 312, 0, 9537);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div5, anchor);
+    			append_dev(div5, div4);
+    			append_dev(div4, div0);
+    			append_dev(div0, video0);
+    			append_dev(div0, t0);
+    			append_dev(div0, video1);
+    			append_dev(div0, t1);
+    			if (if_block) if_block.m(div0, null);
+    			append_dev(div4, t2);
+    			append_dev(div4, div1);
+    			append_dev(div1, video2);
+    			append_dev(div4, t3);
+    			append_dev(div4, div3);
+    			append_dev(div3, div2);
+    			append_dev(div2, button0);
+    			append_dev(button0, span0);
+    			append_dev(span0, t4);
+    			append_dev(button0, t5);
+    			append_dev(button0, i0);
+    			append_dev(div2, t6);
+    			append_dev(div2, button1);
+    			append_dev(button1, span1);
+    			append_dev(button1, t8);
+    			append_dev(button1, i1);
+    			append_dev(div2, t9);
+    			append_dev(div2, button2);
+    			append_dev(button2, span2);
+    			append_dev(span2, t10);
+    			append_dev(button2, t11);
+    			append_dev(button2, i2);
+    			append_dev(div2, t12);
+    			append_dev(div2, button3);
+    			append_dev(button3, span3);
+    			append_dev(span3, t13);
+    			append_dev(button3, t14);
+    			append_dev(button3, i3);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(button0, "click", /*toggleMyVideo*/ ctx[7], false, false, false),
+    					listen_dev(button1, "click", endCall, false, false, false),
+    					listen_dev(button2, "click", /*toggleMyMicrophone*/ ctx[9], false, false, false),
+    					listen_dev(button3, "click", /*shareScreen*/ ctx[8], false, false, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty[0] & /*yourVideoStream*/ 8) {
+    				toggle_class(video0, "shadow", /*yourVideoStream*/ ctx[3]);
+    			}
+
+    			if (!/*yourVideoStream*/ ctx[3]) {
+    				if (if_block) {
+    					if (dirty[0] & /*yourVideoStream*/ 8) {
+    						transition_in(if_block, 1);
+    					}
+    				} else {
+    					if_block = create_if_block$2(ctx);
+    					if_block.c();
+    					transition_in(if_block, 1);
+    					if_block.m(div0, null);
+    				}
+    			} else if (if_block) {
+    				group_outros();
+
+    				transition_out(if_block, 1, 1, () => {
+    					if_block = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (dirty[0] & /*videoOff*/ 4) {
+    				toggle_class(div0, "hidden", /*videoOff*/ ctx[2]);
+    			}
+
+    			if (!current || dirty[0] & /*videoTooltip*/ 16) set_data_dev(t4, /*videoTooltip*/ ctx[4]);
+
+    			if (dirty[0] & /*videoOff*/ 4) {
+    				toggle_class(button0, "mute", /*videoOff*/ ctx[2]);
+    			}
+
+    			if (!current || dirty[0] & /*audioTooltip*/ 32) set_data_dev(t10, /*audioTooltip*/ ctx[5]);
+
+    			if (dirty[0] & /*audioOff*/ 2) {
+    				toggle_class(button2, "mute", /*audioOff*/ ctx[1]);
+    			}
+
+    			if (!current || dirty[0] & /*shareTooltip*/ 64) set_data_dev(t13, /*shareTooltip*/ ctx[6]);
+
+    			if (dirty[0] & /*youAreSharingScreen*/ 1) {
+    				toggle_class(button3, "sharing", /*youAreSharingScreen*/ ctx[0]);
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(if_block);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(if_block);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div5);
+    			if (if_block) if_block.d();
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$9.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function endCall() {
+    	
+    }
+
+    function instance$9($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("Call", slots, []);
+
+    	let { uid } = $$props,
+    		{ participantUid } = $$props,
+    		{ username } = $$props,
+    		{ initiator } = $$props;
+
+    	let devices,
+    		yourVideoStream,
+    		yourScreenSharingStream,
+    		peer,
+    		screenSharingPeer,
+    		offerInterval,
+    		youAreSharingScreen = false,
+    		audioOff = false,
+    		videoOff = false; // {selectedCamera, selectedMicrophone, selectedSpeaker}
+
+    	const streams = new Map();
+
+    	const _generateConstraints = () => {
+    		return generateConstraintsObject(devices?.selectedCamera, devices?.selectedMicrophone);
+    	};
+
+    	const _asOfferer = async (peer, mode = "video-call") => {
+    		const { offer, answer } = streamTypeToSocketEvents(mode);
+
+    		peer.onnegotiationneeded = async () => {
+    			peer.createOffer().then(offer => {
+    				return peer.setLocalDescription(offer);
+    			}).then(() => {
+    				// sending offer until another peer answers
+    				offerInterval = setInterval(
+    					() => {
+    						emit(offer, {
+    							initiatorUid: uid,
+    							targetUid: participantUid,
+    							sdp: peer.localDescription
+    						});
+
+    						rtcLog(`${offer} sent to another peer`);
+    					},
+    					1000
+    				);
+    			}).catch(_onHandshakeError);
+    		};
+
+    		_bindCommonEventListeners(peer, mode);
+
+    		on(answer, function (data) {
+    			rtcLog(`got ${answer} from another peer`);
+    			clearInterval(offerInterval);
+    			peer.setRemoteDescription(new RTCSessionDescription(data.sdp));
+    			off(answer);
+    		});
+    	};
+
+    	const _asAnswerer = (peer, mode = "video-call") => {
+    		const { offer, answer } = streamTypeToSocketEvents(mode);
+
+    		on(offer, async data => {
+    			rtcLog("received offer from another peer");
+
+    			peer.setRemoteDescription(new RTCSessionDescription(data.sdp)).then(() => {
+    				return peer.createAnswer();
+    			}).then(answer => {
+    				return peer.setLocalDescription(answer);
+    			}).then(() => {
+    				emit(answer, {
+    					initiatorUid: uid,
+    					targetUid: participantUid,
+    					sdp: peer.localDescription
+    				});
+    			}).catch(_onHandshakeError);
+
+    			_bindCommonEventListeners(peer, mode);
+    			off(offer);
+    		});
+    	};
+
+    	const _onHandshakeError = er => {
+    		rtcError("Something went wrong during webrtc handshaking.");
+    		criticalErrorSubject.update(_ => "Something went wrong during the handshaking.");
+    		criticalErrorSubject.update(_ => "Reload the page and try again.");
+    		clearInterval(offerInterval);
+    		console.error(er);
+    	};
+
+    	const _onRtcStreamAdded = stream => {
+    		if (streams.has(stream.id)) {
+    			return;
+    		}
+
+    		streams.set(stream.id, stream);
+
+    		if (streams.size === 1) {
+    			attachStreamToVideoElement("participantPrimaryVideo", stream);
+    		} else if (streams.size === 2) {
+    			attachStreamToVideoElement("participantSecondaryVideo", _getFirstItemOfMap(streams).value);
+    			attachStreamToVideoElement("participantPrimaryVideo", stream);
+    		}
+    	};
+
+    	const _getFirstItemOfMap = map => {
+    		return map.values().next();
+    	};
+
+    	const _bindCommonEventListeners = (peer, mode) => {
+    		const { iceCandidate } = streamTypeToSocketEvents(mode);
+
+    		peer.ontrack = event => {
+    			_onRtcStreamAdded(event.streams[0]);
+    			rtcLog("tracks came from another peer");
+    		};
+
+    		peer.onicecandidate = e => {
+    			if (e.candidate) {
+    				emit(iceCandidate, {
+    					initiatorUid: uid,
+    					targetUid: participantUid,
+    					candidate: e.candidate
+    				});
+    			}
+    		};
+
+    		on(iceCandidate, data => {
+    			if (data.candidate) {
+    				rtcLog(`${iceCandidate} - received`);
+    				peer.addIceCandidate(new RTCIceCandidate(data.candidate));
+    			}
+    		});
+    	};
+
+    	const _fetchStream = async () => {
+    		return getUserMedia(_generateConstraints());
+    	};
+
+    	const _setSinkId = async (htmlElementId, speaker) => {
+    		try {
+    			if (!htmlElementId || !speaker) {
+    				return;
+    			}
+
+    			const participantVideo = document.getElementById(htmlElementId);
+
+    			// setSinkId is not supported on mobile (see docs)
+    			if (participantVideo && speaker.deviceId && !isMobile()) {
+    				await participantVideo.setSinkId(speaker.deviceId);
+    			}
+    		} catch(er) {
+    			const msg = mediaStreamErrorMsg(er.name);
+    			criticalErrorSubject.update(_ => msg);
+    			criticalErrorSubject.update(_ => "Cannot play audio on the selected speaker. Default speaker is used.");
+
+    			saveDevices({
+    				selectedCamera: devices?.selectedCamera,
+    				selectedMicrophone: devices?.selectedMicrophone
+    			});
+    		}
+    	};
+
+    	const _unsubscribeFromSocketEvents = mode => {
+    		Object.values(streamTypeToSocketEvents(mode)).map(socketEvent => {
+    			off(socketEvent);
+    		});
+    	};
+
+    	const _startScreenSharing = async () => {
+    		yourScreenSharingStream = await getDisplayMedia();
+    		screenSharingPeer = createPeer();
+
+    		emit("start-screen-sharing", {
+    			initiatorUid: uid,
+    			targetUid: participantUid,
+    			sdp: screenSharingPeer.localDescription
+    		});
+
+    		addTracksToPeer(screenSharingPeer, yourScreenSharingStream);
+    		_asOfferer(screenSharingPeer, "screenshare");
+    		yourScreenSharingStream.getVideoTracks()[0].onended = _stopScreenSharing;
+    		$$invalidate(0, youAreSharingScreen = true);
+    	};
+
+    	const _stopScreenSharing = () => {
+    		$$invalidate(0, youAreSharingScreen = false);
+
+    		emit("stop-screen-sharing", {
+    			initiatorUid: uid,
+    			targetUid: participantUid,
+    			streamId: yourScreenSharingStream.id
+    		});
+
+    		closePeerConnection(screenSharingPeer);
+    		_unsubscribeFromSocketEvents("screenshare");
+    		stopTracks(yourScreenSharingStream);
+    		yourScreenSharingStream = null;
+    	};
+
+    	onMount(async () => {
+    		try {
+    			devices = fetchDevices();
+    			$$invalidate(3, yourVideoStream = await _fetchStream());
+    			attachStreamToVideoElement("yourVideo", yourVideoStream);
+    			_setSinkId("participantVideo", devices?.selectedSpeaker);
+    			peer = createPeer();
+    			addTracksToPeer(peer, yourVideoStream);
+
+    			if (initiator) {
+    				_asOfferer(peer, "video-call");
+    			} else {
+    				_asAnswerer(peer, "video-call");
+    			}
+
+    			on("participant-starts-screen-sharing", () => {
+    				screenSharingPeer = createPeer();
+    				_asAnswerer(screenSharingPeer, "screenshare");
+    			});
+
+    			on("participant-stops-screen-sharing", ({ streamId }) => {
+    				closePeerConnection(screenSharingPeer);
+    				_unsubscribeFromSocketEvents("screenshare");
+    				stopTracks(streams.get(streamId));
+    				streams.delete(streamId);
+    				detachStreamFromVideoElement("participantSecondaryVideo");
+    				attachStreamToVideoElement("participantPrimaryVideo", _getFirstItemOfMap(streams).value);
+    			});
+    		} catch(er) {
+    			const msg = mediaStreamErrorMsg(er.name);
+    			criticalErrorSubject.update(_ => msg);
+    			clearInterval(offerInterval);
+    		}
+    	});
+
+    	async function toggleMyVideo() {
+    		$$invalidate(2, videoOff = !videoOff);
+
+    		if (!videoOff) {
+    			const newStream = await _fetchStream();
+    			const track = replaceTrackForPeer(peer, newStream, "video");
+    			yourVideoStream.addTrack(track);
+    			attachStreamToVideoElement("yourVideo", yourVideoStream);
+    		} else {
+    			yourVideoStream.getVideoTracks()[0].enabled = false;
+
+    			setTimeout(
+    				() => {
+    					yourVideoStream.getVideoTracks()[0].stop();
+    					yourVideoStream.removeTrack(yourVideoStream.getVideoTracks()[0]);
+    				},
+    				150
+    			);
+    		} // if you remove tracks immediately after disabling track (enabled = false)
+    		// your video will be freezed for another participant
+    	}
+
+    	async function shareScreen() {
+    		try {
+    			if (youAreSharingScreen) {
+    				_stopScreenSharing();
+    			} else {
+    				_startScreenSharing();
+    			}
+    		} catch(er) {
+    			if (er.name === "NotAllowedError") {
+    				return criticalErrorSubject.update(_ => "You've canceled sharing screen");
+    			}
+
+    			criticalErrorSubject.update(_ => "Something went wrong during a screen sharing. Your browser may not support this feature ;(");
+    			console.error(er);
+    		}
+    	}
+
+    	function toggleMyMicrophone() {
+    		$$invalidate(1, audioOff = !audioOff);
+    		yourVideoStream.getAudioTracks()[0].enabled = !yourVideoStream.getAudioTracks()[0].enabled;
+    	}
+
+    	onDestroy(() => {
+    		stopTracks(yourVideoStream);
+    		stopTracks(yourScreenSharingStream);
+    	});
+
+    	const writable_props = ["uid", "participantUid", "username", "initiator"];
+
+    	Object_1.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console_1.warn(`<Call> was created with unknown prop '${key}'`);
+    	});
+
+    	$$self.$$set = $$props => {
+    		if ("uid" in $$props) $$invalidate(10, uid = $$props.uid);
+    		if ("participantUid" in $$props) $$invalidate(11, participantUid = $$props.participantUid);
+    		if ("username" in $$props) $$invalidate(12, username = $$props.username);
+    		if ("initiator" in $$props) $$invalidate(13, initiator = $$props.initiator);
+    	};
+
+    	$$self.$capture_state = () => ({
+    		mediaStreamErrorMsg,
+    		Spinner,
+    		generateConstraintsObject,
+    		getUserMedia,
+    		getDisplayMedia,
+    		criticalErrorSubject,
+    		deviceSelectorPopupSubject,
+    		onDestroy,
+    		onMount,
+    		fetchDevices,
+    		saveDevices,
+    		emit,
+    		off,
+    		on,
+    		rtcError,
+    		rtcLog,
+    		isMobile,
+    		streamTypeToSocketEvents,
+    		closePeerConnection,
+    		stopTracks,
+    		replaceTrackForPeer,
+    		attachStreamToVideoElement,
+    		createPeer,
+    		detachStreamFromVideoElement,
+    		addTracksToPeer,
+    		uid,
+    		participantUid,
+    		username,
+    		initiator,
+    		devices,
+    		yourVideoStream,
+    		yourScreenSharingStream,
+    		peer,
+    		screenSharingPeer,
+    		offerInterval,
+    		youAreSharingScreen,
+    		audioOff,
+    		videoOff,
+    		streams,
+    		_generateConstraints,
+    		_asOfferer,
+    		_asAnswerer,
+    		_onHandshakeError,
+    		_onRtcStreamAdded,
+    		_getFirstItemOfMap,
+    		_bindCommonEventListeners,
+    		_fetchStream,
+    		_setSinkId,
+    		_unsubscribeFromSocketEvents,
+    		_startScreenSharing,
+    		_stopScreenSharing,
+    		toggleMyVideo,
+    		shareScreen,
+    		toggleMyMicrophone,
+    		endCall,
+    		videoTooltip,
+    		audioTooltip,
+    		shareTooltip
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("uid" in $$props) $$invalidate(10, uid = $$props.uid);
+    		if ("participantUid" in $$props) $$invalidate(11, participantUid = $$props.participantUid);
+    		if ("username" in $$props) $$invalidate(12, username = $$props.username);
+    		if ("initiator" in $$props) $$invalidate(13, initiator = $$props.initiator);
+    		if ("devices" in $$props) devices = $$props.devices;
+    		if ("yourVideoStream" in $$props) $$invalidate(3, yourVideoStream = $$props.yourVideoStream);
+    		if ("yourScreenSharingStream" in $$props) yourScreenSharingStream = $$props.yourScreenSharingStream;
+    		if ("peer" in $$props) peer = $$props.peer;
+    		if ("screenSharingPeer" in $$props) screenSharingPeer = $$props.screenSharingPeer;
+    		if ("offerInterval" in $$props) offerInterval = $$props.offerInterval;
+    		if ("youAreSharingScreen" in $$props) $$invalidate(0, youAreSharingScreen = $$props.youAreSharingScreen);
+    		if ("audioOff" in $$props) $$invalidate(1, audioOff = $$props.audioOff);
+    		if ("videoOff" in $$props) $$invalidate(2, videoOff = $$props.videoOff);
+    		if ("videoTooltip" in $$props) $$invalidate(4, videoTooltip = $$props.videoTooltip);
+    		if ("audioTooltip" in $$props) $$invalidate(5, audioTooltip = $$props.audioTooltip);
+    		if ("shareTooltip" in $$props) $$invalidate(6, shareTooltip = $$props.shareTooltip);
+    	};
+
+    	let videoTooltip;
+    	let audioTooltip;
+    	let shareTooltip;
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty[0] & /*videoOff*/ 4) {
+    			 $$invalidate(4, videoTooltip = videoOff ? "Unmute Video" : "Mute Video");
+    		}
+
+    		if ($$self.$$.dirty[0] & /*audioOff*/ 2) {
+    			 $$invalidate(5, audioTooltip = audioOff ? "Unmute Audio" : "Mute Audio");
+    		}
+
+    		if ($$self.$$.dirty[0] & /*youAreSharingScreen*/ 1) {
+    			 $$invalidate(6, shareTooltip = youAreSharingScreen
+    			? "Stop Sharing Screen"
+    			: "Share Screen");
+    		}
+    	};
+
+    	return [
+    		youAreSharingScreen,
+    		audioOff,
+    		videoOff,
+    		yourVideoStream,
+    		videoTooltip,
+    		audioTooltip,
+    		shareTooltip,
+    		toggleMyVideo,
+    		shareScreen,
+    		toggleMyMicrophone,
+    		uid,
+    		participantUid,
+    		username,
+    		initiator
+    	];
+    }
+
+    class Call extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+
+    		init(
+    			this,
+    			options,
+    			instance$9,
+    			create_fragment$9,
+    			safe_not_equal,
+    			{
+    				uid: 10,
+    				participantUid: 11,
+    				username: 12,
+    				initiator: 13
+    			},
+    			[-1, -1]
+    		);
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "Call",
+    			options,
+    			id: create_fragment$9.name
+    		});
+
+    		const { ctx } = this.$$;
+    		const props = options.props || {};
+
+    		if (/*uid*/ ctx[10] === undefined && !("uid" in props)) {
+    			console_1.warn("<Call> was created without expected prop 'uid'");
+    		}
+
+    		if (/*participantUid*/ ctx[11] === undefined && !("participantUid" in props)) {
+    			console_1.warn("<Call> was created without expected prop 'participantUid'");
+    		}
+
+    		if (/*username*/ ctx[12] === undefined && !("username" in props)) {
+    			console_1.warn("<Call> was created without expected prop 'username'");
+    		}
+
+    		if (/*initiator*/ ctx[13] === undefined && !("initiator" in props)) {
+    			console_1.warn("<Call> was created without expected prop 'initiator'");
+    		}
+    	}
+
+    	get uid() {
+    		throw new Error("<Call>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set uid(value) {
+    		throw new Error("<Call>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get participantUid() {
+    		throw new Error("<Call>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set participantUid(value) {
+    		throw new Error("<Call>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get username() {
+    		throw new Error("<Call>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set username(value) {
+    		throw new Error("<Call>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	get initiator() {
+    		throw new Error("<Call>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+
+    	set initiator(value) {
+    		throw new Error("<Call>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    	}
+    }
+
+    /* src\App.svelte generated by Svelte v3.31.0 */
+    const file$a = "src\\App.svelte";
+
+    // (235:4) <Emoji>
+    function create_default_slot_2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("🤙");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_2.name,
+    		type: "slot",
+    		source: "(235:4) <Emoji>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (249:2) {:else}
+    function create_else_block_1(ctx) {
+    	let div;
+    	let h2;
+    	let t1;
+    	let h30;
+    	let t2;
+    	let t3;
+    	let span;
+    	let t4;
+    	let t5;
+    	let h31;
+    	let t7;
+    	let splitter;
+    	let t8;
+    	let h32;
+    	let t10;
+    	let form;
+    	let input;
+    	let t11;
+    	let button;
+    	let current;
+    	let mounted;
+    	let dispose;
+    	splitter = new Splitter({ $$inline: true });
+
+    	button = new Button({
+    			props: {
+    				type: "submit",
+    				disabled: /*callButtonDisabled*/ ctx[10],
+    				$$slots: { default: [create_default_slot_1] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "Your identifier is";
+    			t1 = space();
+    			h30 = element("h3");
+    			t2 = text(/*uid*/ ctx[3]);
+    			t3 = space();
+    			span = element("span");
+    			t4 = text(/*copyText*/ ctx[4]);
+    			t5 = space();
+    			h31 = element("h3");
+    			h31.textContent = "Send it to the one who wanna call you and you will get in touch";
+    			t7 = space();
+    			create_component(splitter.$$.fragment);
+    			t8 = space();
+    			h32 = element("h3");
+    			h32.textContent = "or enter identifier shared with you below";
+    			t10 = space();
+    			form = element("form");
+    			input = element("input");
+    			t11 = space();
+    			create_component(button.$$.fragment);
+    			add_location(h2, file$a, 250, 6, 5871);
+    			attr_dev(span, "class", "svelte-1r6i828");
+    			add_location(span, file$a, 251, 34, 5934);
+    			attr_dev(h30, "class", "uid-label svelte-1r6i828");
+    			add_location(h30, file$a, 251, 6, 5906);
+    			add_location(h31, file$a, 252, 6, 5996);
+    			add_location(h32, file$a, 255, 6, 6098);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "id", "name-input");
+    			attr_dev(input, "placeholder", "XYZZ");
+    			attr_dev(input, "class", "svelte-1r6i828");
+    			add_location(input, file$a, 258, 8, 6217);
+    			add_location(form, file$a, 257, 6, 6158);
+    			attr_dev(div, "class", "uid-block svelte-1r6i828");
+    			add_location(div, file$a, 249, 4, 5840);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, h2);
+    			append_dev(div, t1);
+    			append_dev(div, h30);
+    			append_dev(h30, t2);
+    			append_dev(h30, t3);
+    			append_dev(h30, span);
+    			append_dev(span, t4);
+    			append_dev(div, t5);
+    			append_dev(div, h31);
+    			append_dev(div, t7);
+    			mount_component(splitter, div, null);
+    			append_dev(div, t8);
+    			append_dev(div, h32);
+    			append_dev(div, t10);
+    			append_dev(div, form);
+    			append_dev(form, input);
+    			set_input_value(input, /*participantUid*/ ctx[0]);
+    			append_dev(form, t11);
+    			mount_component(button, form, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(span, "click", /*handleUidClick*/ ctx[14], false, false, false),
+    					listen_dev(input, "input", /*input_input_handler_1*/ ctx[18]),
+    					listen_dev(form, "submit", prevent_default(/*handleStartCall*/ ctx[13]), false, true, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (!current || dirty & /*uid*/ 8) set_data_dev(t2, /*uid*/ ctx[3]);
+    			if (!current || dirty & /*copyText*/ 16) set_data_dev(t4, /*copyText*/ ctx[4]);
+
+    			if (dirty & /*participantUid*/ 1 && input.value !== /*participantUid*/ ctx[0]) {
+    				set_input_value(input, /*participantUid*/ ctx[0]);
+    			}
+
+    			const button_changes = {};
+    			if (dirty & /*callButtonDisabled*/ 1024) button_changes.disabled = /*callButtonDisabled*/ ctx[10];
+
+    			if (dirty & /*$$scope*/ 2097152) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(splitter.$$.fragment, local);
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(splitter.$$.fragment, local);
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(splitter);
+    			destroy_component(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block_1.name,
+    		type: "else",
+    		source: "(249:2) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (241:2) {#if !joined}
+    function create_if_block_5(ctx) {
+    	let div;
+    	let h2;
+    	let t1;
+    	let form;
+    	let input;
+    	let t2;
+    	let button;
+    	let current;
+    	let mounted;
+    	let dispose;
+
+    	button = new Button({
+    			props: {
+    				type: "submit",
+    				disabled: !/*username*/ ctx[2],
+    				$$slots: { default: [create_default_slot$2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			div = element("div");
+    			h2 = element("h2");
+    			h2.textContent = "Who are you?";
+    			t1 = space();
+    			form = element("form");
+    			input = element("input");
+    			t2 = space();
+    			create_component(button.$$.fragment);
+    			set_style(h2, "margin", "20px");
+    			add_location(h2, file$a, 242, 6, 5527);
+    			attr_dev(input, "type", "text");
+    			attr_dev(input, "id", "name-input");
+    			attr_dev(input, "placeholder", "What is your name, hero?");
+    			attr_dev(input, "class", "svelte-1r6i828");
+    			add_location(input, file$a, 244, 8, 5632);
+    			add_location(form, file$a, 243, 6, 5578);
+    			attr_dev(div, "class", "join-form svelte-1r6i828");
+    			add_location(div, file$a, 241, 4, 5496);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, div, anchor);
+    			append_dev(div, h2);
+    			append_dev(div, t1);
+    			append_dev(div, form);
+    			append_dev(form, input);
+    			set_input_value(input, /*username*/ ctx[2]);
+    			append_dev(form, t2);
+    			mount_component(button, form, null);
+    			current = true;
+
+    			if (!mounted) {
+    				dispose = [
+    					listen_dev(input, "input", /*input_input_handler*/ ctx[17]),
+    					listen_dev(form, "submit", prevent_default(/*handleJoin*/ ctx[12]), false, true, false)
+    				];
+
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (dirty & /*username*/ 4 && input.value !== /*username*/ ctx[2]) {
+    				set_input_value(input, /*username*/ ctx[2]);
+    			}
+
+    			const button_changes = {};
+    			if (dirty & /*username*/ 4) button_changes.disabled = !/*username*/ ctx[2];
+
+    			if (dirty & /*$$scope*/ 2097152) {
+    				button_changes.$$scope = { dirty, ctx };
+    			}
+
+    			button.$set(button_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(button.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(button.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(div);
+    			destroy_component(button);
+    			mounted = false;
+    			run_all(dispose);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_5.name,
+    		type: "if",
+    		source: "(241:2) {#if !joined}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (260:8) <Button type="submit" disabled={callButtonDisabled}>
+    function create_default_slot_1(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Call");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot_1.name,
+    		type: "slot",
+    		source: "(260:8) <Button type=\\\"submit\\\" disabled={callButtonDisabled}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (246:8) <Button type="submit" disabled={!username}>
+    function create_default_slot$2(ctx) {
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			t = text("Join");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, t, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_default_slot$2.name,
+    		type: "slot",
+    		source: "(246:8) <Button type=\\\"submit\\\" disabled={!username}>",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (265:2) {#if !callAccepted}
+    function create_if_block_3(ctx) {
+    	let span;
+    	let mounted;
+    	let dispose;
+
+    	function select_block_type_1(ctx, dirty) {
+    		if (/*showDeviceSettingsPopup*/ ctx[1]) return create_if_block_4;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type_1(ctx);
+    	let if_block = current_block_type(ctx);
+
+    	const block = {
+    		c: function create() {
+    			span = element("span");
+    			if_block.c();
+    			attr_dev(span, "class", "open-settings-btn svelte-1r6i828");
+    			add_location(span, file$a, 265, 4, 6443);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, span, anchor);
+    			if_block.m(span, null);
+
+    			if (!mounted) {
+    				dispose = listen_dev(span, "click", /*toggleDevicesSettingsPopup*/ ctx[11], false, false, false);
+    				mounted = true;
+    			}
+    		},
+    		p: function update(ctx, dirty) {
+    			if (current_block_type !== (current_block_type = select_block_type_1(ctx))) {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
+
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(span, null);
+    				}
+    			}
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(span);
+    			if_block.d();
+    			mounted = false;
+    			dispose();
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_3.name,
+    		type: "if",
+    		source: "(265:2) {#if !callAccepted}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (267:61) {:else}
+    function create_else_block(ctx) {
+    	let i;
+
+    	const block = {
+    		c: function create() {
+    			i = element("i");
+    			attr_dev(i, "class", "fas fa-cog");
+    			add_location(i, file$a, 266, 68, 6583);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, i, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(i);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(267:61) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (267:6) {#if showDeviceSettingsPopup}
+    function create_if_block_4(ctx) {
+    	let i;
+
+    	const block = {
+    		c: function create() {
+    			i = element("i");
+    			attr_dev(i, "class", "fas fa-times");
+    			add_location(i, file$a, 266, 35, 6550);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, i, anchor);
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(i);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_4.name,
+    		type: "if",
+    		source: "(267:6) {#if showDeviceSettingsPopup}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (271:2) {#if callAccepted}
+    function create_if_block_2(ctx) {
+    	let call;
+    	let current;
+
+    	call = new Call({
+    			props: {
+    				initiator: /*initiator*/ ctx[7],
+    				uid: /*uid*/ ctx[3],
+    				participantUid: /*callerData*/ ctx[9].initiatorUid,
+    				username: /*callerData*/ ctx[9].username
+    			},
+    			$$inline: true
+    		});
+
+    	const block = {
+    		c: function create() {
+    			create_component(call.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(call, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const call_changes = {};
+    			if (dirty & /*initiator*/ 128) call_changes.initiator = /*initiator*/ ctx[7];
+    			if (dirty & /*uid*/ 8) call_changes.uid = /*uid*/ ctx[3];
+    			if (dirty & /*callerData*/ 512) call_changes.participantUid = /*callerData*/ ctx[9].initiatorUid;
+    			if (dirty & /*callerData*/ 512) call_changes.username = /*callerData*/ ctx[9].username;
+    			call.$set(call_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(call.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(call.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(call, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_2.name,
+    		type: "if",
+    		source: "(271:2) {#if callAccepted}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (277:0) {#if showDeviceSettingsPopup}
+    function create_if_block_1$1(ctx) {
+    	let devicesettingsmodal;
+    	let current;
+    	devicesettingsmodal = new DeviceSettingsModal({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			create_component(devicesettingsmodal.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(devicesettingsmodal, target, anchor);
+    			current = true;
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(devicesettingsmodal.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(devicesettingsmodal.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(devicesettingsmodal, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block_1$1.name,
+    		type: "if",
+    		source: "(277:0) {#if showDeviceSettingsPopup}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (281:0) {#if incomingCall}
+    function create_if_block$3(ctx) {
+    	let incomingcall;
+    	let current;
+
+    	incomingcall = new IncomingCall({
+    			props: { username: /*callerData*/ ctx[9].username },
+    			$$inline: true
+    		});
+
+    	incomingcall.$on("onAccept", /*handleAcceptCall*/ ctx[15]);
+    	incomingcall.$on("onDrop", /*handleDropCall*/ ctx[16]);
+
+    	const block = {
+    		c: function create() {
+    			create_component(incomingcall.$$.fragment);
+    		},
+    		m: function mount(target, anchor) {
+    			mount_component(incomingcall, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, dirty) {
+    			const incomingcall_changes = {};
+    			if (dirty & /*callerData*/ 512) incomingcall_changes.username = /*callerData*/ ctx[9].username;
+    			incomingcall.$set(incomingcall_changes);
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(incomingcall.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(incomingcall.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			destroy_component(incomingcall, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_if_block$3.name,
+    		type: "if",
+    		source: "(281:0) {#if incomingCall}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    function create_fragment$a(ctx) {
+    	let main;
+    	let h1;
+    	let t0;
+    	let emoji;
+    	let t1;
+    	let t2;
+    	let splitter;
+    	let t3;
+    	let current_block_type_index;
+    	let if_block0;
+    	let t4;
+    	let t5;
+    	let t6;
+    	let t7;
+    	let t8;
+    	let criticaltoastcontainer;
+    	let current;
+
+    	emoji = new Emoji({
+    			props: {
+    				$$slots: { default: [create_default_slot_2] },
+    				$$scope: { ctx }
+    			},
+    			$$inline: true
+    		});
+
+    	splitter = new Splitter({ $$inline: true });
+    	const if_block_creators = [create_if_block_5, create_else_block_1];
+    	const if_blocks = [];
+
+    	function select_block_type(ctx, dirty) {
+    		if (!/*joined*/ ctx[5]) return 0;
+    		return 1;
+    	}
+
+    	current_block_type_index = select_block_type(ctx);
+    	if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    	let if_block1 = !/*callAccepted*/ ctx[6] && create_if_block_3(ctx);
+    	let if_block2 = /*callAccepted*/ ctx[6] && create_if_block_2(ctx);
+    	let if_block3 = /*showDeviceSettingsPopup*/ ctx[1] && create_if_block_1$1(ctx);
+    	let if_block4 = /*incomingCall*/ ctx[8] && create_if_block$3(ctx);
+    	criticaltoastcontainer = new CriticalToastContainer({ $$inline: true });
+
+    	const block = {
+    		c: function create() {
+    			main = element("main");
+    			h1 = element("h1");
+    			t0 = text("So\r\n    ");
+    			create_component(emoji.$$.fragment);
+    			t1 = text("\r\n    me maybe!");
+    			t2 = space();
+    			create_component(splitter.$$.fragment);
+    			t3 = space();
+    			if_block0.c();
+    			t4 = space();
+    			if (if_block1) if_block1.c();
+    			t5 = space();
+    			if (if_block2) if_block2.c();
+    			t6 = space();
+    			if (if_block3) if_block3.c();
+    			t7 = space();
+    			if (if_block4) if_block4.c();
+    			t8 = space();
+    			create_component(criticaltoastcontainer.$$.fragment);
+    			attr_dev(h1, "class", "svelte-1r6i828");
+    			add_location(h1, file$a, 232, 2, 5394);
+    			attr_dev(main, "class", "svelte-1r6i828");
+    			add_location(main, file$a, 231, 0, 5384);
+    		},
+    		l: function claim(nodes) {
+    			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, main, anchor);
+    			append_dev(main, h1);
+    			append_dev(h1, t0);
+    			mount_component(emoji, h1, null);
+    			append_dev(h1, t1);
+    			append_dev(main, t2);
+    			mount_component(splitter, main, null);
+    			append_dev(main, t3);
+    			if_blocks[current_block_type_index].m(main, null);
+    			append_dev(main, t4);
+    			if (if_block1) if_block1.m(main, null);
+    			append_dev(main, t5);
+    			if (if_block2) if_block2.m(main, null);
+    			insert_dev(target, t6, anchor);
+    			if (if_block3) if_block3.m(target, anchor);
+    			insert_dev(target, t7, anchor);
+    			if (if_block4) if_block4.m(target, anchor);
+    			insert_dev(target, t8, anchor);
+    			mount_component(criticaltoastcontainer, target, anchor);
+    			current = true;
+    		},
+    		p: function update(ctx, [dirty]) {
+    			const emoji_changes = {};
+
+    			if (dirty & /*$$scope*/ 2097152) {
+    				emoji_changes.$$scope = { dirty, ctx };
+    			}
+
+    			emoji.$set(emoji_changes);
+    			let previous_block_index = current_block_type_index;
+    			current_block_type_index = select_block_type(ctx);
+
+    			if (current_block_type_index === previous_block_index) {
+    				if_blocks[current_block_type_index].p(ctx, dirty);
+    			} else {
+    				group_outros();
+
+    				transition_out(if_blocks[previous_block_index], 1, 1, () => {
+    					if_blocks[previous_block_index] = null;
+    				});
+
+    				check_outros();
+    				if_block0 = if_blocks[current_block_type_index];
+
+    				if (!if_block0) {
+    					if_block0 = if_blocks[current_block_type_index] = if_block_creators[current_block_type_index](ctx);
+    					if_block0.c();
+    				} else {
+    					if_block0.p(ctx, dirty);
+    				}
+
+    				transition_in(if_block0, 1);
+    				if_block0.m(main, t4);
+    			}
+
+    			if (!/*callAccepted*/ ctx[6]) {
+    				if (if_block1) {
+    					if_block1.p(ctx, dirty);
+    				} else {
+    					if_block1 = create_if_block_3(ctx);
+    					if_block1.c();
+    					if_block1.m(main, t5);
+    				}
+    			} else if (if_block1) {
+    				if_block1.d(1);
+    				if_block1 = null;
+    			}
+
+    			if (/*callAccepted*/ ctx[6]) {
+    				if (if_block2) {
+    					if_block2.p(ctx, dirty);
+
+    					if (dirty & /*callAccepted*/ 64) {
+    						transition_in(if_block2, 1);
+    					}
+    				} else {
+    					if_block2 = create_if_block_2(ctx);
+    					if_block2.c();
+    					transition_in(if_block2, 1);
+    					if_block2.m(main, null);
+    				}
+    			} else if (if_block2) {
+    				group_outros();
+
+    				transition_out(if_block2, 1, 1, () => {
+    					if_block2 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*showDeviceSettingsPopup*/ ctx[1]) {
+    				if (if_block3) {
+    					if (dirty & /*showDeviceSettingsPopup*/ 2) {
+    						transition_in(if_block3, 1);
+    					}
+    				} else {
+    					if_block3 = create_if_block_1$1(ctx);
+    					if_block3.c();
+    					transition_in(if_block3, 1);
+    					if_block3.m(t7.parentNode, t7);
+    				}
+    			} else if (if_block3) {
+    				group_outros();
+
+    				transition_out(if_block3, 1, 1, () => {
+    					if_block3 = null;
+    				});
+
+    				check_outros();
+    			}
+
+    			if (/*incomingCall*/ ctx[8]) {
+    				if (if_block4) {
+    					if_block4.p(ctx, dirty);
+
+    					if (dirty & /*incomingCall*/ 256) {
+    						transition_in(if_block4, 1);
+    					}
+    				} else {
+    					if_block4 = create_if_block$3(ctx);
+    					if_block4.c();
+    					transition_in(if_block4, 1);
+    					if_block4.m(t8.parentNode, t8);
+    				}
+    			} else if (if_block4) {
+    				group_outros();
+
+    				transition_out(if_block4, 1, 1, () => {
+    					if_block4 = null;
+    				});
+
+    				check_outros();
+    			}
+    		},
+    		i: function intro(local) {
+    			if (current) return;
+    			transition_in(emoji.$$.fragment, local);
+    			transition_in(splitter.$$.fragment, local);
+    			transition_in(if_block0);
+    			transition_in(if_block2);
+    			transition_in(if_block3);
+    			transition_in(if_block4);
+    			transition_in(criticaltoastcontainer.$$.fragment, local);
+    			current = true;
+    		},
+    		o: function outro(local) {
+    			transition_out(emoji.$$.fragment, local);
+    			transition_out(splitter.$$.fragment, local);
+    			transition_out(if_block0);
+    			transition_out(if_block2);
+    			transition_out(if_block3);
+    			transition_out(if_block4);
+    			transition_out(criticaltoastcontainer.$$.fragment, local);
+    			current = false;
+    		},
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(main);
+    			destroy_component(emoji);
+    			destroy_component(splitter);
+    			if_blocks[current_block_type_index].d();
+    			if (if_block1) if_block1.d();
+    			if (if_block2) if_block2.d();
+    			if (detaching) detach_dev(t6);
+    			if (if_block3) if_block3.d(detaching);
+    			if (detaching) detach_dev(t7);
+    			if (if_block4) if_block4.d(detaching);
+    			if (detaching) detach_dev(t8);
+    			destroy_component(criticaltoastcontainer, detaching);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
+    		id: create_fragment$a.name,
+    		type: "component",
+    		source: "",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    const MAXIMUM_UID_LENGTH = 4;
+
+    function instance$a($$self, $$props, $$invalidate) {
+    	let { $$slots: slots = {}, $$scope } = $$props;
+    	validate_slots("App", slots, []);
+    	let showDeviceSettingsPopup, username, uid, participantUid;
+    	let copyText = "Click to copy";
+    	let joined = false, callAccepted = false, initiator = false, incomingCall = false;
+    	let callerData;
+
+    	onMount(() => {
+    		const user = fetchUserDetails();
+    		userInfoSubject.update(() => user);
+    	});
+
+    	const handleWelcome = data => {
+    		$$invalidate(5, joined = true);
+    		userInfoSubject.update(_ => data);
+    		$$invalidate(3, uid = data.uid);
+    		saveUserDetails(data);
+    	};
+
+    	const handleIncomingCall = data => {
+    		$$invalidate(8, incomingCall = true);
+    		$$invalidate(9, callerData = data);
+    	};
+
+    	on("welcome", handleWelcome);
+    	on("incoming-call", handleIncomingCall);
+
+    	on("user-is-not-joined", () => {
+    		criticalErrorSubject.update(_ => "User is not joined yet or identifier is not correct.");
+    	});
+
+    	userInfoSubject.subscribe(val => $$invalidate(2, username = val?.name));
+
+    	deviceSelectorPopupSubject.subscribe(val => {
+    		$$invalidate(1, showDeviceSettingsPopup = val);
+    	});
+
+    	function toggleDevicesSettingsPopup() {
+    		deviceSelectorPopupSubject.update(value => !value);
+    	}
+
+    	function handleJoin(e) {
+    		emit("join", username);
+    	}
+
+    	function handleStartCall() {
+    		$$invalidate(7, initiator = true);
+
+    		emit("try-call", {
+    			username,
+    			targetUid: participantUid,
+    			initiatorUid: uid
+    		});
+
+    		on("accept-call", data => {
+    			$$invalidate(6, callAccepted = true);
+    			$$invalidate(8, incomingCall = false);
+    			$$invalidate(9, callerData = data);
+    		});
+
+    		on("drop-call", () => {
+    			criticalErrorSubject.update(_ => "Participant has dropped the call");
+    			$$invalidate(9, callerData = null);
+    			$$invalidate(8, incomingCall = false);
+    			$$invalidate(7, initiator = false);
+    			off("accept-call");
+    			off("drop-call");
+    		});
+    	}
+
+    	function handleUidClick() {
+    		$$invalidate(4, copyText = "Copied");
+    		copy(uid);
+    	}
+
+    	function handleAcceptCall() {
+    		$$invalidate(6, callAccepted = true);
+    		$$invalidate(8, incomingCall = false);
+    		$$invalidate(7, initiator = false);
+
+    		emit("accept-call", {
+    			username,
+    			targetUid: callerData.initiatorUid,
+    			initiatorUid: uid
+    		});
+    	}
+
+    	function handleDropCall() {
+    		emit("drop-call", {
+    			username,
+    			targetUid: callerData.initiatorUid,
+    			initiatorUid: uid
+    		});
+
+    		$$invalidate(9, callerData = null);
+    		$$invalidate(8, incomingCall = false);
+    		off("accept-call");
+    		off("drop-call");
+    	}
+
+    	const writable_props = [];
+
+    	Object.keys($$props).forEach(key => {
+    		if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn(`<App> was created with unknown prop '${key}'`);
+    	});
+
+    	function input_input_handler() {
+    		username = this.value;
+    		$$invalidate(2, username);
+    	}
+
+    	function input_input_handler_1() {
+    		participantUid = this.value;
+    		$$invalidate(0, participantUid);
+    	}
+
+    	$$self.$capture_state = () => ({
+    		CriticalToastContainer,
+    		copy,
+    		Button,
+    		deviceSelectorPopupSubject,
+    		userInfoSubject,
+    		criticalErrorSubject,
+    		DeviceSettingsModal,
+    		on,
+    		emit,
+    		off,
+    		fetchUserDetails,
+    		saveUserDetails,
+    		onMount,
+    		Emoji,
+    		Splitter,
+    		IncomingCall,
+    		Call,
+    		MAXIMUM_UID_LENGTH,
+    		showDeviceSettingsPopup,
+    		username,
+    		uid,
+    		participantUid,
+    		copyText,
+    		joined,
+    		callAccepted,
+    		initiator,
+    		incomingCall,
+    		callerData,
+    		handleWelcome,
+    		handleIncomingCall,
+    		toggleDevicesSettingsPopup,
+    		handleJoin,
+    		handleStartCall,
+    		handleUidClick,
+    		handleAcceptCall,
+    		handleDropCall,
+    		callButtonDisabled
+    	});
+
+    	$$self.$inject_state = $$props => {
+    		if ("showDeviceSettingsPopup" in $$props) $$invalidate(1, showDeviceSettingsPopup = $$props.showDeviceSettingsPopup);
+    		if ("username" in $$props) $$invalidate(2, username = $$props.username);
+    		if ("uid" in $$props) $$invalidate(3, uid = $$props.uid);
+    		if ("participantUid" in $$props) $$invalidate(0, participantUid = $$props.participantUid);
+    		if ("copyText" in $$props) $$invalidate(4, copyText = $$props.copyText);
+    		if ("joined" in $$props) $$invalidate(5, joined = $$props.joined);
+    		if ("callAccepted" in $$props) $$invalidate(6, callAccepted = $$props.callAccepted);
+    		if ("initiator" in $$props) $$invalidate(7, initiator = $$props.initiator);
+    		if ("incomingCall" in $$props) $$invalidate(8, incomingCall = $$props.incomingCall);
+    		if ("callerData" in $$props) $$invalidate(9, callerData = $$props.callerData);
+    		if ("callButtonDisabled" in $$props) $$invalidate(10, callButtonDisabled = $$props.callButtonDisabled);
+    	};
+
+    	let callButtonDisabled;
+
+    	if ($$props && "$$inject" in $$props) {
+    		$$self.$inject_state($$props.$$inject);
+    	}
+
+    	$$self.$$.update = () => {
+    		if ($$self.$$.dirty & /*participantUid*/ 1) {
+    			 $$invalidate(10, callButtonDisabled = !(participantUid && participantUid.length === MAXIMUM_UID_LENGTH));
+    		}
+    	};
+
+    	return [
+    		participantUid,
+    		showDeviceSettingsPopup,
+    		username,
+    		uid,
+    		copyText,
+    		joined,
+    		callAccepted,
+    		initiator,
+    		incomingCall,
+    		callerData,
+    		callButtonDisabled,
+    		toggleDevicesSettingsPopup,
+    		handleJoin,
+    		handleStartCall,
+    		handleUidClick,
+    		handleAcceptCall,
+    		handleDropCall,
+    		input_input_handler,
+    		input_input_handler_1
+    	];
+    }
+
+    class App extends SvelteComponentDev {
+    	constructor(options) {
+    		super(options);
+    		init(this, options, instance$a, create_fragment$a, safe_not_equal, {});
+
+    		dispatch_dev("SvelteRegisterComponent", {
+    			component: this,
+    			tagName: "App",
+    			options,
+    			id: create_fragment$a.name
+    		});
+    	}
+    }
+
+    const app = new App({
+      target: document.body,
+    });
+
+    return app;
+
+}());
 //# sourceMappingURL=bundle.js.map
